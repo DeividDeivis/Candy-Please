@@ -36,6 +36,13 @@ public class GameManager : MonoBehaviour
         currentState = states[stateIndex];
         currentState.OnEnterState();
     }
+    public void NextState() 
+    {
+        currentState.OnExitState();
+        stateIndex ++;
+        currentState = states[stateIndex];
+        currentState.OnEnterState();
+    }
     #endregion
 
     #region GameSettings

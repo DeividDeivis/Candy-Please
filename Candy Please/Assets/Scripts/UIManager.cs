@@ -25,5 +25,6 @@ public class UIManager : MonoBehaviour
         foreach (var screen in screens)
             screen.SetActive(false);
         screens[index].SetActive(true);
+        screenIndex = index;
     }
 }
