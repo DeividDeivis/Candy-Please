@@ -17,16 +17,26 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float GameTime;
     private float currentTime;
 
+    public static GameManager Instance;
+
+    #region Singleton
+    private void Awake()
+    {
+        Instance = Instance == null ? this : Instance;
+    }
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetState(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentState.OnUpdateState();
+        if(currentState)
+            currentState.OnUpdateState();
     }
 
     #region StateMachine
@@ -34,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
         stateIndex = index;
         currentState = states[stateIndex];
+        m_UI.SetSreen(stateIndex);
         currentState.OnEnterState();
     }
     public void NextState() 
@@ -41,6 +52,7 @@ public class GameManager : MonoBehaviour
         currentState.OnExitState();
         stateIndex ++;
         currentState = states[stateIndex];
+        m_UI.SetSreen(stateIndex);
         currentState.OnEnterState();
     }
     #endregion

@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class VisitorsManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private List<Visitor> visitors;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public Visitor GetVisitor() 
+    { 
+        return visitors[0];
     }
 }
