@@ -7,7 +7,7 @@ public class Candy : MonoBehaviour
     [Header("Type of Candy")]
     public CandyType Type;
     [Header("Description of the candy")]
-    public string description; 
+    [TextArea(2, 10)]public string description; 
 
     // Start is called before the first frame update
     void Start()

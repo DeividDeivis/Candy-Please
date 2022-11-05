@@ -9,6 +9,9 @@ public class Visitor : ScriptableObject
     [Header("Visitor ID")]
     public string VisitorID;
 
+    [Header("Visitor Dialog")]
+    [TextArea(3, 10)] public string Dialog;
+
     [Header("Animations")]
     public Sprite Normal;
     public Sprite Impatient;

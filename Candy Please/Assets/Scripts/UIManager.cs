@@ -15,6 +15,11 @@ public class UIManager : MonoBehaviour
 
     [Header("Game Elements")]
     [SerializeField] private Transform g_Watch;
+    [Header("House Status")]
+    [SerializeField] private Sprite statusNormal;
+    [SerializeField] private Sprite statusDamage1;
+    [SerializeField] private Sprite statusDamage2;
+    [SerializeField] private Sprite statusDamage3;
 
     [Header("EndGame Elements")]
     [SerializeField] private Transform e_Title;

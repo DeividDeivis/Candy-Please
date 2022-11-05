@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Ghost
   m_EditorClassIdentifier: 
   VisitorID: Ghost
+  Dialog: "Esta s\xE1bana es el \xFAnico disfraz que no me hac\xEDa sentir inseguro
+    de mi cuerpo. Mi mam\xE1 me puso a dieta as\xED que me estoy cuidando con los
+    az\xFAcares :c"
   Normal: {fileID: 1131532401, guid: d7dcb28b9b9b0d74887cdb7f19abdc8e, type: 3}
   Impatient: {fileID: 2019925542, guid: d7dcb28b9b9b0d74887cdb7f19abdc8e, type: 3}
   Hangry: {fileID: -89207443, guid: d7dcb28b9b9b0d74887cdb7f19abdc8e, type: 3}
