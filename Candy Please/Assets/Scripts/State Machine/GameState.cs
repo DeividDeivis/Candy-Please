@@ -28,8 +28,13 @@ public class GameState : State
 
     [Header("House Settings")]
     [SerializeField] private Image m_houseStatus;
-    [SerializeField] private int HouseLifes;
+    [SerializeField] private int HouseLifes = 3;
     private int currentHouseLife;
+    [Header("Status")]
+    [SerializeField] private Sprite statusNormal;
+    [SerializeField] private Sprite statusDamage1;
+    [SerializeField] private Sprite statusDamage2;
+    [SerializeField] private Sprite statusDamage3;
 
     public override void OnEnterState() 
     {
@@ -41,6 +46,10 @@ public class GameState : State
     public override void OnExitState() 
     {
         m_audio.Stop();
+        if (currentHouseLife <= 2) // perdio alguna vida.
+            GameManager.Instance.GameStatus = gameStatusType.Lose;
+        else
+            GameManager.Instance.GameStatus = gameStatusType.Win;
     }
 
     private void ResetData() 
@@ -51,6 +60,7 @@ public class GameState : State
         m_Dialog.text = "";
         doorOpen = false;
         m_Door.transform.localScale = Vector3.one;
+        GameManager.Instance.Initialize();
     }
 
     public void ClickDoor() 
@@ -76,6 +86,4 @@ public class GameState : State
             });
         }
     }
-
-    public int GetHouseLife() { return currentHouseLife; }
 }

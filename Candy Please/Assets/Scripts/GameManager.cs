@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UIManager m_UI;
 
     [Header("Game Settings")]
+    public gameStatusType GameStatus;
     [SerializeField] private bool startGame;
     [Tooltip("Cuanto dura la partida?")]
     [SerializeField] private float GameTime;
@@ -53,8 +54,8 @@ public class GameManager : MonoBehaviour
     #region StateMachine
     public void SetState(int index) 
     {
+        currentState.OnExitState();
         stateIndex = index;
-        CheckState();
         currentState = states[stateIndex];
         m_UI.SetSreen(stateIndex);
         currentState.OnEnterState();
@@ -62,21 +63,10 @@ public class GameManager : MonoBehaviour
     public void NextState() 
     {
         currentState.OnExitState();
+        states[stateIndex + 1].OnEnterState();
         stateIndex ++;
-        CheckState();
         currentState = states[stateIndex];
         m_UI.SetSreen(stateIndex);
-        currentState.OnEnterState();
-    }
-
-    private void CheckState() 
-    {
-        switch (stateIndex)
-        {
-            case 0: Initialize(); break;
-            case 1: StartGame(); break;
-            case 2: EndGame(); break;
-        }
     }
     #endregion
 
@@ -85,11 +75,14 @@ public class GameManager : MonoBehaviour
     {
         currentTime = GameTime;
         startGame = false;
+        GameStatus = gameStatusType.Win;
     }
 
     public void StartGame() 
     { 
         startGame = true;
+        m_UI.SetClockTime(GameTime);
+        NextState();
     }
 
     private void EndGame() 

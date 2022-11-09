@@ -48,3 +48,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_Clock: {fileID: 0}
+  m_ClockHand: {fileID: 0}

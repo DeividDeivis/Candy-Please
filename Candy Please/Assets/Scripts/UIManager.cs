@@ -2,28 +2,18 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> screens;
     private int screenIndex = 0;
 
-    [Header("Menu Elements")]
-    [SerializeField] private Transform m_Title;
-    [SerializeField] private Transform m_StartBtn;
-    private Sequence MenuAnim;
-
     [Header("Game Elements")]
-    [SerializeField] private Transform g_Watch;
-    [Header("House Status")]
-    [SerializeField] private Sprite statusNormal;
-    [SerializeField] private Sprite statusDamage1;
-    [SerializeField] private Sprite statusDamage2;
-    [SerializeField] private Sprite statusDamage3;
-
-    [Header("EndGame Elements")]
-    [SerializeField] private Transform e_Title;
-    private Sequence EndAnim;
+    [SerializeField] private float spins = 1;
+    [SerializeField] private Image m_Clock;
+    [SerializeField] private Transform m_ClockHandHour;
+    [SerializeField] private Transform m_ClockHandMin;
 
     public void SetSreen(int index)
     {
@@ -33,9 +23,11 @@ public class UIManager : MonoBehaviour
         screenIndex = index;
     }
 
-    public void AnimMenu() 
+    public void SetClockTime(float GameTime) 
     {
-        MenuAnim = DOTween.Sequence();
-        //MenuAnim.Append();
+        float HourAngle = spins * 360;
+        m_ClockHandHour.localRotation = Quaternion.Euler(0, 0, 0);
+
+        m_ClockHandHour.DOLocalRotate(new Vector3(0f, 0f, HourAngle), GameTime);
     }
 }

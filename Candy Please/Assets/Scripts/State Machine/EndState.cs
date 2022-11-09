@@ -6,8 +6,6 @@ using DG.Tweening;
 
 public class EndState : State
 {
-    private gameStatusType GameStatus = gameStatusType.Win;
-
     [Header("Screen Setting")]
     [SerializeField] private Image EndScreenBG;
     [SerializeField] private AudioSource m_audio;
@@ -22,7 +20,7 @@ public class EndState : State
 
     public override void OnEnterState() 
     {
-        if (GameStatus == gameStatusType.Win)
+        if (GameManager.Instance.GameStatus == gameStatusType.Win)
         {
             EndScreenBG.sprite = WinBG;
             m_audio.PlayOneShot(WinSFX);
@@ -37,8 +35,6 @@ public class EndState : State
     }
     public override void OnUpdateState() { }
     public override void OnExitState() { }
-
-    public void SetGameStatus(gameStatusType status) { GameStatus = status; }
 
     private IEnumerator WaitInScreen() 
     {
