@@ -14,13 +14,8 @@ public class MenuState : State
 
     public override void OnEnterState() 
     {
-        Startgame.onClick.AddListener(()=> 
-        {
-            m_audio.Stop();
-            GameManager.Instance.StartGame();                              
-        });
+        Startgame.onClick.AddListener(()=> GameManager.Instance.NextState());
         m_audio.Play();
-
         Animation();     
     }
 
@@ -30,7 +25,8 @@ public class MenuState : State
     }
 
     public override void OnExitState() 
-    { 
+    {
+        m_audio.Stop();
         Startgame.onClick.RemoveAllListeners();
     }
 

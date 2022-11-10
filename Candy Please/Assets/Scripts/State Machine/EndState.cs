@@ -38,7 +38,7 @@ public class EndState : State
 
     private IEnumerator WaitInScreen() 
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         GameManager.Instance.NextState();
     }
 }

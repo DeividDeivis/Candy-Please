@@ -265,7 +265,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7011981195479655341}
-  - component: {fileID: 7011981195479655342}
   - component: {fileID: 1261876566025023170}
   m_Layer: 5
   m_Name: Menu Screen
@@ -298,20 +297,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7011981195479655342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7011981195479655340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94cd5bacb1e51494d9f1b326b4d7068f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_audio: {fileID: 1261876566025023170}
-  Startgame: {fileID: 8926686588823998466}
 --- !u!82 &1261876566025023170
 AudioSource:
   m_ObjectHideFlags: 0
@@ -323,10 +308,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3c38e494afadc184f8779d1e9f0d955f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1118885179168323917}
-  - component: {fileID: 1118885179168323918}
   - component: {fileID: 115821691169089627}
   m_Layer: 5
   m_Name: End Screen
@@ -39,24 +38,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1118885179168323918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1118885179168323916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9684cb43e9ededf4e9c2cd4a43c5b4ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EndScreenBG: {fileID: 1618890769536712495}
-  m_audio: {fileID: 115821691169089627}
-  WinBG: {fileID: 21300000, guid: 692f361bc64f6404aa7506b5f790bb8d, type: 3}
-  WinSFX: {fileID: 8300000, guid: 702661cdd6f7e9546bf9676bfc5a50d8, type: 3}
-  LoseBG: {fileID: 21300000, guid: 643a01f2283b9f048a1472d73bc0fd42, type: 3}
-  LoseSFX: {fileID: 8300000, guid: dd3e53d753a554b4fa3f7cb57909e7d7, type: 3}
 --- !u!82 &115821691169089627
 AudioSource:
   m_ObjectHideFlags: 0
@@ -71,7 +52,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

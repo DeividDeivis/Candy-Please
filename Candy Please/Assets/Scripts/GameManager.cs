@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetState(0);
+        m_UI.SetSreen(stateIndex);
+        currentState = states[stateIndex];
+        currentState.OnEnterState();       
     }
 
     // Update is called once per frame
@@ -56,17 +58,19 @@ public class GameManager : MonoBehaviour
     {
         currentState.OnExitState();
         stateIndex = index;
-        currentState = states[stateIndex];
         m_UI.SetSreen(stateIndex);
-        currentState.OnEnterState();
+        currentState = states[stateIndex];
+        currentState.OnEnterState();             
     }
     public void NextState() 
     {
         currentState.OnExitState();
-        states[stateIndex + 1].OnEnterState();
         stateIndex ++;
-        currentState = states[stateIndex];
+        if (stateIndex == states.Count)
+            stateIndex = 0;
         m_UI.SetSreen(stateIndex);
+        currentState = states[stateIndex];
+        currentState.OnEnterState();       
     }
     #endregion
 
@@ -79,10 +83,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartGame() 
-    { 
-        startGame = true;
+    {
         m_UI.SetClockTime(GameTime);
-        NextState();
+        startGame = true;       
     }
 
     private void EndGame() 

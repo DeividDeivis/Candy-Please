@@ -1,24 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Candy : MonoBehaviour
+public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IDragHandler
 {
     [Header("Type of Candy")]
     public CandyType Type;
     [Header("Description of the candy")]
-    [TextArea(2, 10)]public string description; 
+    [TextArea(2, 10)]public string description;
+  
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        
+        Debug.Log("Start Drag");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnEndDrag(PointerEventData eventData)
     {
-        
+        Debug.Log("End Drag");
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        DialogSystem.Instance.WriteText(description);
+    }
+
+    public void OnDrag(PointerEventData eventData) // Necessary for Drag.
+    {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        Canvas canvas = FindObjectOfType<Canvas>();
+        rectTransform.anchoredPosition = eventData.delta / canvas.scaleFactor;
     }
 }
 

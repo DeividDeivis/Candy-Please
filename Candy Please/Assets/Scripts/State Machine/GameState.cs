@@ -41,6 +41,7 @@ public class GameState : State
         m_Door.onClick.AddListener(ClickDoor);
         ResetData();
         m_audio.Play();
+        GameManager.Instance.StartGame();
     }
     public override void OnUpdateState() { }
     public override void OnExitState() 

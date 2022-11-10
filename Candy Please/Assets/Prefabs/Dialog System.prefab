@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogText: {fileID: 0}
-  textSpeed: 0.3
+  textSpeed: 0.1

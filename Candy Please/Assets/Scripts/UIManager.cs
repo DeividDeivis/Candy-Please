@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     private int screenIndex = 0;
 
     [Header("Game Elements")]
-    [SerializeField] private float spins = 1;
+    [SerializeField] private float clockSpins = 1;
     [SerializeField] private Image m_Clock;
     [SerializeField] private Transform m_ClockHandHour;
     [SerializeField] private Transform m_ClockHandMin;
@@ -25,9 +25,12 @@ public class UIManager : MonoBehaviour
 
     public void SetClockTime(float GameTime) 
     {
-        float HourAngle = spins * 360;
-        m_ClockHandHour.localRotation = Quaternion.Euler(0, 0, 0);
+        float HourAngle = 360 * clockSpins;
+        m_ClockHandHour.localRotation = Quaternion.Euler(Vector3.zero);
+        m_ClockHandHour.DOLocalRotate(new Vector3(0f, 0f, -HourAngle), GameTime, RotateMode.LocalAxisAdd).SetEase(Ease.Linear);
 
-        m_ClockHandHour.DOLocalRotate(new Vector3(0f, 0f, HourAngle), GameTime);
+        float MinAngle = 360 * clockSpins * 12;
+        m_ClockHandMin.localRotation = Quaternion.Euler(Vector3.zero);
+        m_ClockHandMin.DOLocalRotate(new Vector3(0f, 0f, -MinAngle), GameTime, RotateMode.LocalAxisAdd).SetEase(Ease.Linear);
     }
 }

@@ -6,6 +6,23 @@ using System;
 
 public class DialogSystem : MonoBehaviour
 {
+    #region Singleton
+    private static DialogSystem instance;
+    public static DialogSystem Instance => instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+    #endregion
+
     [SerializeField] private TextMeshProUGUI DialogText;
     /// <summary>
     /// Cuantos segundos de espera hay entre cada letra?
@@ -14,6 +31,7 @@ public class DialogSystem : MonoBehaviour
 
     public void WriteText(string dialog) 
     {
+        DialogText.text = "";
         char[] letters = dialog.ToCharArray();
         StartCoroutine(WriteMachine(letters));
     }

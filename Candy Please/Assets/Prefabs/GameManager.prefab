@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8916401309470246882}
   - component: {fileID: 8916401309470246883}
+  - component: {fileID: 1006180315927549437}
+  - component: {fileID: 7470054586215130730}
+  - component: {fileID: 5202282365182912825}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,8 +48,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   states:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1006180315927549437}
+  - {fileID: 7470054586215130730}
+  - {fileID: 5202282365182912825}
   m_UI: {fileID: 0}
-  GameTime: 60
+  GameStatus: 0
+  startGame: 0
+  GameTime: 120
+--- !u!114 &1006180315927549437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916401309470246880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94cd5bacb1e51494d9f1b326b4d7068f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audio: {fileID: 0}
+  Startgame: {fileID: 0}
+--- !u!114 &7470054586215130730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916401309470246880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d78cd2f9ba0f9c41a8f93de2ba60a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audio: {fileID: 0}
+  m_Door: {fileID: 0}
+  m_DoorSound: {fileID: 0}
+  doorOpenSFX: {fileID: 8300000, guid: 21624e9088db8d74ea10806515efd0e6, type: 3}
+  doorCloseSFX: {fileID: 8300000, guid: 310e45d76f1649540b874ff17cf4f047, type: 3}
+  m_InventoryArea: {fileID: 0}
+  m_Dialog: {fileID: 0}
+  m_DialogSystem: {fileID: 0}
+  visitorsManager: {fileID: 0}
+  m_houseStatus: {fileID: 0}
+  HouseLifes: 3
+  statusNormal: {fileID: 21300000, guid: 70bc247dc4758904385d23051cc27308, type: 3}
+  statusDamage1: {fileID: 21300000, guid: da9c6525b5b576c4897295dc194a4eee, type: 3}
+  statusDamage2: {fileID: 21300000, guid: 1230fe3fc840899448592be487650c95, type: 3}
+  statusDamage3: {fileID: 21300000, guid: 9886f07bfaabab54489887d8629ce21b, type: 3}
+--- !u!114 &5202282365182912825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8916401309470246880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9684cb43e9ededf4e9c2cd4a43c5b4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndScreenBG: {fileID: 0}
+  m_audio: {fileID: 0}
+  WinBG: {fileID: 21300000, guid: 692f361bc64f6404aa7506b5f790bb8d, type: 3}
+  WinSFX: {fileID: 8300000, guid: 702661cdd6f7e9546bf9676bfc5a50d8, type: 3}
+  LoseBG: {fileID: 21300000, guid: 643a01f2283b9f048a1472d73bc0fd42, type: 3}
+  LoseSFX: {fileID: 8300000, guid: dd3e53d753a554b4fa3f7cb57909e7d7, type: 3}
