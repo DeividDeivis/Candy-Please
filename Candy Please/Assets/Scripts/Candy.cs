@@ -51,5 +51,5 @@ public enum CandyType
     Eye,
     CherryPalette,
     PinkPalette,
-    GrapePalette
+    GrapeCandy
 }

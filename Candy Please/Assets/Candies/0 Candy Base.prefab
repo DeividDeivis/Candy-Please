@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5230991068162774038}
   - component: {fileID: 5230991068162774037}
   m_Layer: 0
-  m_Name: Candy Base
+  m_Name: 0 Candy Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,4 +90,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 3
-  description: Flynpuff
+  description: 
