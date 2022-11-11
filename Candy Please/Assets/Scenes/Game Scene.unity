@@ -403,6 +403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fda7439b2689774b8f37be35778be2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentVisitor: {fileID: 0}
+  VisitorAvatar: {fileID: 0}
 --- !u!4 &727380586
 Transform:
   m_ObjectHideFlags: 0
