@@ -15,8 +15,8 @@ MonoBehaviour:
   VisitorID: Vampire
   Dialog: "Sab\xEDas que los vampiros chupamos sangre porque es nuestra \xFAnica
     fuente de vitamina D ya que no podemos tomar sol?\r"
-  Normal: {fileID: 0}
-  Impatient: {fileID: 0}
-  Hangry: {fileID: 0}
-  Happy: {fileID: 0}
-  CandiesLike: 0000000000000000
+  Normal: {fileID: 84113349, guid: 54f3b1c1b90f37240ba2c7891d5e304b, type: 3}
+  Impatient: {fileID: 638654872, guid: 54f3b1c1b90f37240ba2c7891d5e304b, type: 3}
+  Hangry: {fileID: 797920081, guid: 54f3b1c1b90f37240ba2c7891d5e304b, type: 3}
+  Happy: {fileID: 1068939362, guid: 54f3b1c1b90f37240ba2c7891d5e304b, type: 3}
+  CandiesLike: 0e0000000b000000

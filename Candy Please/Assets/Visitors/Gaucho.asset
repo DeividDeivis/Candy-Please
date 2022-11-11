@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa6cb6824f8eb741ab88156b817ab39, type: 3}
+  m_Name: Gaucho
+  m_EditorClassIdentifier: 
+  VisitorID: Gaucho
+  Dialog: Dulce o truco? Amargo y retruco
+  Normal: {fileID: 2068989463, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
+  Impatient: {fileID: 650755398, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
+  Hangry: {fileID: -775642685, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
+  Happy: {fileID: -2087228976, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
+  CandiesLike: 0100000009000000

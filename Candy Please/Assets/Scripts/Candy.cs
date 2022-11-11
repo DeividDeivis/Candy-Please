@@ -36,20 +36,20 @@ public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointer
 
 public enum CandyType 
 { 
-    Apple,
     Alfajor,
-    Cookie,
-    PinkCandy,
+    ZeroCalories,
+    PumpkinCandy,
     Chocolate,
+    Flynpuff,
+    StrawberryCandy,
+    Cookie,
     IceCream,
-    GreenCandy,
-    PinkPalette,
-    BlueCandy,
+    BoneCandy,
+    Apple,
     Mate,
-    GreyCandy,
-    RedPalette,
-    PuerpleCandy,
-    OrangeCandy,
-    RedCandy,
-    Eye
+    MediaHora,
+    Eye,
+    CherryPalette,
+    PinkPalette,
+    GrapePalette
 }

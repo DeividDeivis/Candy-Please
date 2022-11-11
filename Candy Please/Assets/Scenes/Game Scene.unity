@@ -374,6 +374,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ba4402768d2394ca944c520fc025f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &727380584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727380586}
+  - component: {fileID: 727380585}
+  m_Layer: 0
+  m_Name: Visitor Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &727380585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727380584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fda7439b2689774b8f37be35778be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &727380586
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727380584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 944.3968, y: 611.33215, z: -13.045409}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800029252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7011981195479655340, guid: 0483ccd6aa2da0d4abdbf5a2da4cae7d, type: 3}

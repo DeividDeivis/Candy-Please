@@ -91,9 +91,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5230991068162774037, guid: 416a89077b85f22468f561ae6d0cdfab, type: 3}
+      propertyPath: Type
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5230991068162774043, guid: 416a89077b85f22468f561ae6d0cdfab, type: 3}
       propertyPath: m_Name
-      value: Candy Base
+      value: FlynPuff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 416a89077b85f22468f561ae6d0cdfab, type: 3}
