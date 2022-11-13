@@ -90,6 +90,11 @@ public class GameManager : MonoBehaviour
         m_Visitors.FirstVisitor();
     }
 
+    public void AttackHouse() 
+    {
+        states[1].GetComponent<GameState>().DamageHouse();
+    }
+
     private void EndGame() 
     {
         

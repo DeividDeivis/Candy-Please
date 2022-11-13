@@ -15,8 +15,8 @@ MonoBehaviour:
   VisitorID: Skeleton
   Dialog: "Estoy hecho puro hueso. Quiz\xE1s deber\xEDa comer algo super-ultra-mega-archi-
     PESADO"
-  Normal: {fileID: 0}
-  Impatient: {fileID: 0}
-  Hangry: {fileID: 0}
-  Happy: {fileID: 0}
+  Normal: {fileID: 690293256, guid: 0bf0c295735e1314cb2b720ab5bbc264, type: 3}
+  Impatient: {fileID: -1822340671, guid: 0bf0c295735e1314cb2b720ab5bbc264, type: 3}
+  Angry: {fileID: 1676273374, guid: 0bf0c295735e1314cb2b720ab5bbc264, type: 3}
+  Happy: {fileID: 1559195005, guid: 0bf0c295735e1314cb2b720ab5bbc264, type: 3}
   CandiesLike: 0300000008000000

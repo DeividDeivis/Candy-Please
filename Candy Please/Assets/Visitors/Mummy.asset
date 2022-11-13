@@ -17,6 +17,6 @@ MonoBehaviour:
     En mis tiempos solo quit\xE1bamos cerebros por la nariz."
   Normal: {fileID: -263466455, guid: 0378d7796fe7a744091193ad12360049, type: 3}
   Impatient: {fileID: 1601962721, guid: 0378d7796fe7a744091193ad12360049, type: 3}
-  Hangry: {fileID: -1669754614, guid: 0378d7796fe7a744091193ad12360049, type: 3}
+  Angry: {fileID: -1669754614, guid: 0378d7796fe7a744091193ad12360049, type: 3}
   Happy: {fileID: -1278404297, guid: 0378d7796fe7a744091193ad12360049, type: 3}
   CandiesLike: 0b00000000000000

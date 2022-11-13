@@ -15,7 +15,7 @@ public class Visitor : ScriptableObject
     [Header("Animations")]
     public Sprite Normal;
     public Sprite Impatient;
-    public Sprite Hangry;
+    public Sprite Angry;
     public Sprite Happy;
 
     [Header("Candies he like")]

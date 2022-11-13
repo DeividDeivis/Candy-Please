@@ -16,6 +16,6 @@ MonoBehaviour:
   Dialog: Dulce o truco? Amargo y retruco
   Normal: {fileID: 2068989463, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
   Impatient: {fileID: 650755398, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
-  Hangry: {fileID: -775642685, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
+  Angry: {fileID: -775642685, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
   Happy: {fileID: -2087228976, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
   CandiesLike: 000000000a000000

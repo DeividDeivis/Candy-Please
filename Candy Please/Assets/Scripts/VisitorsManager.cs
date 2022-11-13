@@ -12,7 +12,7 @@ public class VisitorsManager : MonoBehaviour
     /// <summary>
     /// Cunatos segundos puede esperar un Visitante para recibir su caramelo?.
     /// </summary>
-    public float VisitorPatience = 5;
+    public float VisitorPatience = 10;
 
     public Visitor GetNewVisitor() 
     {
