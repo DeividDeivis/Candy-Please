@@ -53,4 +53,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83e7b71494b292640bf0f934a72b78cd, type: 2}
   - {fileID: 11400000, guid: dd25027ea342b3c469c3815c854360bf, type: 2}
   - {fileID: 11400000, guid: 14c7888f83bcf8049a0688d17c07016b, type: 2}
+  controller: {fileID: 0}
   VisitorPatience: 10

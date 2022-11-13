@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 7470054586215130730}
   - {fileID: 5202282365182912825}
   m_UI: {fileID: 0}
+  m_Visitors: {fileID: 0}
   GameStatus: 0
   startGame: 0
   GameTime: 120

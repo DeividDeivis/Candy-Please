@@ -18,4 +18,4 @@ MonoBehaviour:
   Impatient: {fileID: 650755398, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
   Hangry: {fileID: -775642685, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
   Happy: {fileID: -2087228976, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
-  CandiesLike: 0100000009000000
+  CandiesLike: 000000000a000000

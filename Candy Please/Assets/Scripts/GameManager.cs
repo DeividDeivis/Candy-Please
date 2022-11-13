@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Managers & Controllers")]
     [SerializeField] private UIManager m_UI;
+    [SerializeField] private VisitorsManager m_Visitors;
 
     [Header("Game Settings")]
     public gameStatusType GameStatus;
@@ -85,7 +86,8 @@ public class GameManager : MonoBehaviour
     public void StartGame() 
     {
         m_UI.SetClockTime(GameTime);
-        startGame = true;       
+        startGame = true;
+        m_Visitors.FirstVisitor();
     }
 
     private void EndGame() 
