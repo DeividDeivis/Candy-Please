@@ -7,10 +7,11 @@ using DG.Tweening;
 public class VisitorController : MonoBehaviour
 {
     [SerializeField] private Visitor visitorData;
-    [SerializeField] private float patientPercentage;
-    [SerializeField] private float currentPatient;
+    private float patientPercentage;
+    private float currentPatient;
     [SerializeField] private VisitorStatus currentVisitorStatus = VisitorStatus.Normal;
     [SerializeField] private bool VisitorIsWaiting = false;
+    [SerializeField] private bool VisitorServed = false;
     [Header("Visitor UI Settings")]
     [SerializeField] private Image VisitorAvatar;
     [SerializeField] private Button VisitorBtn;
@@ -66,6 +67,11 @@ public class VisitorController : MonoBehaviour
         
     }
 
+    public void VisitorInDoor(bool door) 
+    { 
+        
+    }
+
     public void VisitorSpeak()
     {
         string message = visitorData.Dialog;
@@ -101,5 +107,5 @@ public class VisitorController : MonoBehaviour
     }
 }
 
-public enum VisitorStatus { Normal, Impatient, Happy, Angry }
+public enum VisitorStatus { Normal = 0, Impatient = 1, Happy = 2, Angry = 3 }
 

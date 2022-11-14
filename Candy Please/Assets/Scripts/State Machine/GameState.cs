@@ -24,6 +24,7 @@ public class GameState : State
 
     [Header("Visitor Settings")]
     [SerializeField] private VisitorsManager visitorsManager;
+    [SerializeField] private VisitorController visitorController; 
     private float currentPatience;
 
     [Header("House Settings")]
@@ -75,6 +76,7 @@ public class GameState : State
             {
                 doorOpen = true;
                 m_Door.interactable = true;
+                visitorController.VisitorInDoor(doorOpen);
             });
         }
         else 
@@ -84,6 +86,7 @@ public class GameState : State
             {
                 doorOpen = false;
                 m_Door.interactable = true;
+                visitorController.VisitorInDoor(doorOpen);
             });
         }
     }
