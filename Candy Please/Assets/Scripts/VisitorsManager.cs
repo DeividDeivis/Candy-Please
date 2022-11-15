@@ -22,9 +22,10 @@ public class VisitorsManager : MonoBehaviour
         return currentVisitor;
     }
 
-    public void FirstVisitor() 
+    public void SpawnVisitor() 
     { 
         Visitor newVisitor = GetNewVisitor();
         controller.LoadVisitorInfo(newVisitor, VisitorPatience);
+        DialogSystem.Instance.WriteText("TOC TOC TOC!!!");
     }
 }

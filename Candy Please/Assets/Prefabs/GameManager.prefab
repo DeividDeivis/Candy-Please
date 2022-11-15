@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 5202282365182912825}
   m_UI: {fileID: 0}
   m_Visitors: {fileID: 0}
+  m_Candies: {fileID: 0}
   GameStatus: 0
   startGame: 0
   GameTime: 120
@@ -91,6 +92,7 @@ MonoBehaviour:
   m_Dialog: {fileID: 0}
   m_DialogSystem: {fileID: 0}
   visitorsManager: {fileID: 0}
+  visitorController: {fileID: 0}
   m_houseStatus: {fileID: 0}
   HouseLifes: 3
   statusNormal: {fileID: 21300000, guid: 70bc247dc4758904385d23051cc27308, type: 3}

@@ -11,7 +11,7 @@ public class VisitorController : MonoBehaviour
     private float currentPatient;
     [SerializeField] private VisitorStatus currentVisitorStatus = VisitorStatus.Normal;
     [SerializeField] private bool VisitorIsWaiting = false;
-    [SerializeField] private bool VisitorServed = false;
+    [SerializeField] private bool VisitorServed = false; // Fue atendido este visitante?
     [Header("Visitor UI Settings")]
     [SerializeField] private Image VisitorAvatar;
     [SerializeField] private Button VisitorBtn;
@@ -26,6 +26,8 @@ public class VisitorController : MonoBehaviour
     void Start()
     {
         VisitorBtn.onClick.AddListener(VisitorSpeak);
+        VisitorAvatar.rectTransform.localPosition = new Vector3(65, 0, 0);
+        VisitorAvatar.color = Color.black;
     }
 
     // Update is called once per frame
@@ -55,21 +57,21 @@ public class VisitorController : MonoBehaviour
         visitorData = newVisitor;
         currentPatient = patient;
         patientPercentage = patient / 2;
+        VisitorServed = false;
 
         VisitorAvatar.sprite = visitorData.Normal;
         currentVisitorStatus = VisitorStatus.Normal;
 
-        VisitorIn();
-    }
-
-    private void CheckVisitorStatus() 
-    { 
-        
+        VisitorIsWaiting = true;
     }
 
     public void VisitorInDoor(bool door) 
-    { 
-        
+    {
+        if (VisitorServed == false && door == true) 
+        {
+            VisitorServed = true;
+            VisitorIn();
+        }
     }
 
     public void VisitorSpeak()
@@ -80,15 +82,14 @@ public class VisitorController : MonoBehaviour
 
     private void VisitorIn()
     {
-        VisitorAvatar.rectTransform.position = new Vector3(65, 0, 0);
+        VisitorAvatar.rectTransform.localPosition = new Vector3(65, 0, 0);
         VisitorAvatar.color = Color.black;
 
         visitorAnimation = DOTween.Sequence().SetEase(Ease.Linear);
         visitorAnimation
-            .Append(VisitorAvatar.rectTransform.DOLocalMove(Vector3.zero, 1f))
-            .Join(VisitorAvatar.DOColor(Color.white, .3f));
-
-        VisitorIsWaiting = true;
+            .Append(VisitorAvatar.rectTransform.DOLocalMove(Vector3.zero, .3f))
+            .Append(VisitorAvatar.DOColor(Color.white, .3f))
+            .OnComplete(()=> VisitorSpeak());
     }
 
     private void VisitorOut(bool TimeOut)
@@ -97,12 +98,12 @@ public class VisitorController : MonoBehaviour
 
         visitorAnimation = DOTween.Sequence().SetEase(Ease.Linear);
         visitorAnimation
-            .Append(VisitorAvatar.rectTransform.DOLocalMove(new Vector3(-65, 0, 0), 1f))
+            .Append(VisitorAvatar.rectTransform.DOLocalMove(new Vector3(-65, 0, 0), .3f))
             .Join(VisitorAvatar.DOColor(Color.black, .3f))
             .OnComplete(() => 
             {
                 if (TimeOut)
-                    GameManager.Instance.AttackHouse();
+                    GameManager.Instance.CheckVisitorStatus(currentVisitorStatus);
             });
     }
 }

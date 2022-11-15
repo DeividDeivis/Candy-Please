@@ -98,7 +98,8 @@ public class GameState : State
         {
             case 2: m_houseStatus.sprite = statusDamage1; break;
             case 1: m_houseStatus.sprite = statusDamage2; break;
-            case 0: m_houseStatus.sprite = statusDamage3; GameManager.Instance.NextState(); break;
+            case 0: m_houseStatus.sprite = statusDamage3; break;
+            case -1: GameManager.Instance.NextState(); break;
             default: m_houseStatus.sprite = statusNormal; break;
         }
     }

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [Header("Managers & Controllers")]
     [SerializeField] private UIManager m_UI;
     [SerializeField] private VisitorsManager m_Visitors;
+    [SerializeField] private CandiesManager m_Candies;
 
     [Header("Game Settings")]
     public gameStatusType GameStatus;
@@ -87,17 +88,21 @@ public class GameManager : MonoBehaviour
     {
         m_UI.SetClockTime(GameTime);
         startGame = true;
-        m_Visitors.FirstVisitor();
+        m_Visitors.SpawnVisitor();
+        m_Candies.SortCandiesList();
+        m_UI.LoadCandiesInUI(m_Candies.GetCandies());
     }
 
-    public void AttackHouse() 
+    public void CheckVisitorStatus(VisitorStatus status) 
     {
-        states[1].GetComponent<GameState>().DamageHouse();
+        if(status == VisitorStatus.Angry)
+            states[1].GetComponent<GameState>().DamageHouse();
+        m_Visitors.SpawnVisitor();
     }
 
-    private void EndGame() 
+    public void EndGame() 
     {
-        
+        m_Candies.ResetCandies();
     }
     #endregion
 }

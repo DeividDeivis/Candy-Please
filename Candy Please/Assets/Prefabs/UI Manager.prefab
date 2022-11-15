@@ -48,7 +48,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  spins: 1
+  clockSpins: 1
   m_Clock: {fileID: 0}
   m_ClockHandHour: {fileID: 0}
   m_ClockHandMin: {fileID: 0}
+  m_CandiesSpawnArea: {fileID: 0}

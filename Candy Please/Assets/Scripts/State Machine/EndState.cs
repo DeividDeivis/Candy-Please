@@ -34,7 +34,10 @@ public class EndState : State
         StartCoroutine(WaitInScreen());
     }
     public override void OnUpdateState() { }
-    public override void OnExitState() { }
+    public override void OnExitState() 
+    {
+        GameManager.Instance.EndGame();
+    }
 
     private IEnumerator WaitInScreen() 
     {

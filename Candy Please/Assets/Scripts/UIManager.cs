@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image m_Clock;
     [SerializeField] private Transform m_ClockHandHour;
     [SerializeField] private Transform m_ClockHandMin;
+    [SerializeField] private Transform m_CandiesSpawnArea;
 
     public void SetSreen(int index)
     {
@@ -32,5 +33,15 @@ public class UIManager : MonoBehaviour
         float MinAngle = 360 * clockSpins * 12;
         m_ClockHandMin.localRotation = Quaternion.Euler(Vector3.zero);
         m_ClockHandMin.DOLocalRotate(new Vector3(0f, 0f, -MinAngle), GameTime, RotateMode.LocalAxisAdd).SetEase(Ease.Linear);
+    }
+
+    public void LoadCandiesInUI(List<GameObject> candiesToSpawn)
+    {
+        foreach (GameObject candy in candiesToSpawn) 
+        { 
+            GameObject instantiate = Instantiate(candy, m_CandiesSpawnArea);
+            instantiate.transform.localScale = Vector3.zero;
+            instantiate.transform.DOScale(Vector3.one, .3f);
+        }
     }
 }
