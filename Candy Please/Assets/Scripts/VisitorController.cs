@@ -42,13 +42,15 @@ public class VisitorController : MonoBehaviour
                 VisitorAvatar.sprite = visitorData.Impatient;
                 currentVisitorStatus = VisitorStatus.Impatient;
             }
-            if (currentPatient <= 3) 
+            if (currentPatient <= 1) 
             { 
-                VisitorAvatar.sprite = visitorData.Angry;
-                currentVisitorStatus = VisitorStatus.Angry;
+                VisitorAvatar.sprite = visitorData.Angry;               
             }
             if (currentPatient <= 0) 
-                VisitorOut(true);           
+            { 
+                currentVisitorStatus = VisitorStatus.Angry;
+                VisitorOut(); 
+            }                         
         }
     }
 
@@ -67,11 +69,13 @@ public class VisitorController : MonoBehaviour
 
     public void VisitorInDoor(bool door) 
     {
-        if (VisitorServed == false && door == true) 
+        if (VisitorServed == false && door == true)
         {
             VisitorServed = true;
             VisitorIn();
         }
+        else if (VisitorServed == false && door == false)
+            DialogSystem.Instance.WriteText("TOC TOC TOC!!!");
     }
 
     public void VisitorSpeak()
@@ -84,26 +88,29 @@ public class VisitorController : MonoBehaviour
     {
         VisitorAvatar.rectTransform.localPosition = new Vector3(65, 0, 0);
         VisitorAvatar.color = Color.black;
+        VisitorBtn.interactable = false;
 
         visitorAnimation = DOTween.Sequence().SetEase(Ease.Linear);
         visitorAnimation
             .Append(VisitorAvatar.rectTransform.DOLocalMove(Vector3.zero, .3f))
             .Append(VisitorAvatar.DOColor(Color.white, .3f))
-            .OnComplete(()=> VisitorSpeak());
+            .OnComplete(()=> { 
+                VisitorSpeak();
+                VisitorBtn.interactable = true;
+            });
     }
 
-    private void VisitorOut(bool TimeOut)
+    private void VisitorOut()
     {
         VisitorIsWaiting = false;
+        VisitorBtn.interactable = false;
 
         visitorAnimation = DOTween.Sequence().SetEase(Ease.Linear);
         visitorAnimation
-            .Append(VisitorAvatar.rectTransform.DOLocalMove(new Vector3(-65, 0, 0), .3f))
-            .Join(VisitorAvatar.DOColor(Color.black, .3f))
-            .OnComplete(() => 
-            {
-                if (TimeOut)
-                    GameManager.Instance.CheckVisitorStatus(currentVisitorStatus);
+            .Append(VisitorAvatar.DOColor(Color.black, .3f))
+            .Append(VisitorAvatar.rectTransform.DOLocalMove(new Vector3(-65, 0, 0), .3f))            
+            .OnComplete(() => {
+                GameManager.Instance.CheckVisitorStatus(currentVisitorStatus);
             });
     }
 }

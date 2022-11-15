@@ -352,7 +352,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1179,6 +1179,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 1261876566025023170, guid: 0483ccd6aa2da0d4abdbf5a2da4cae7d, type: 3}
   m_PrefabInstance: {fileID: 7011981196010183144}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &7011981196010183147 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3226740459574110592, guid: 0483ccd6aa2da0d4abdbf5a2da4cae7d, type: 3}
+  m_PrefabInstance: {fileID: 7011981196010183144}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7274771007416905842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1251,6 +1256,10 @@ PrefabInstance:
       propertyPath: Startgame
       value: 
       objectReference: {fileID: 7011981196010183145}
+    - target: {fileID: 1006180315927549437, guid: c03186d33c0959b4db59062434e4e775, type: 3}
+      propertyPath: BGContainer
+      value: 
+      objectReference: {fileID: 7011981196010183147}
     - target: {fileID: 5202282365182912825, guid: c03186d33c0959b4db59062434e4e775, type: 3}
       propertyPath: m_audio
       value: 

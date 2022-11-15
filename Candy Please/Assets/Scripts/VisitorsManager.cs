@@ -10,7 +10,7 @@ public class VisitorsManager : MonoBehaviour
     [SerializeField] private VisitorController controller; 
 
     /// <summary>
-    /// Cunatos segundos puede esperar un Visitante para recibir su caramelo?.
+    /// Cuantos segundos puede esperar un Visitante para recibir su caramelo?.
     /// </summary>
     public float VisitorPatience = 10;
 
@@ -26,6 +26,5 @@ public class VisitorsManager : MonoBehaviour
     { 
         Visitor newVisitor = GetNewVisitor();
         controller.LoadVisitorInfo(newVisitor, VisitorPatience);
-        DialogSystem.Instance.WriteText("TOC TOC TOC!!!");
     }
 }

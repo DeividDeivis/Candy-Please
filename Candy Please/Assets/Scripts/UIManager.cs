@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -43,5 +44,11 @@ public class UIManager : MonoBehaviour
             instantiate.transform.localScale = Vector3.zero;
             instantiate.transform.DOScale(Vector3.one, .3f);
         }
+    }
+
+    public void ResetCandiesInUI()
+    {
+        foreach (Candy candy in m_CandiesSpawnArea.GetComponentsInChildren<Candy>())
+            Destroy(candy.gameObject);
     }
 }

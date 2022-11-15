@@ -71,6 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_audio: {fileID: 0}
   Startgame: {fileID: 0}
+  BGContainer: {fileID: 0}
 --- !u!114 &7470054586215130730
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,7 +25,6 @@ public class GameState : State
     [Header("Visitor Settings")]
     [SerializeField] private VisitorsManager visitorsManager;
     [SerializeField] private VisitorController visitorController; 
-    private float currentPatience;
 
     [Header("House Settings")]
     [SerializeField] private Image m_houseStatus;
@@ -58,7 +57,6 @@ public class GameState : State
     {
         m_houseStatus.sprite = statusNormal;
         currentHouseLife = HouseLifes;
-        currentPatience = visitorsManager.VisitorPatience;
         m_Dialog.text = "";
         doorOpen = false;
         m_Door.transform.localScale = Vector3.one;
@@ -67,28 +65,38 @@ public class GameState : State
 
     public void ClickDoor() 
     {
-        m_Door.interactable = false;
-
         if (doorOpen == false)
         {
-            m_DoorSound.PlayOneShot(doorOpenSFX);
-            m_Door.transform.DOScaleX(.1f, .3f).OnComplete(() =>
-            {
-                doorOpen = true;
-                m_Door.interactable = true;
-                visitorController.VisitorInDoor(doorOpen);
-            });
+            DoorOpen();
         }
         else 
         {
-            m_DoorSound.PlayOneShot(doorCloseSFX);
-            m_Door.transform.DOScaleX(1f, .3f).OnComplete(() =>
-            {
-                doorOpen = false;
-                m_Door.interactable = true;
-                visitorController.VisitorInDoor(doorOpen);
-            });
+            DoorClose();
         }
+    }
+
+    public void DoorOpen() 
+    {
+        m_Door.interactable = false;
+        m_DoorSound.PlayOneShot(doorOpenSFX);
+        m_Door.transform.DOScaleX(.1f, .3f).OnComplete(() =>
+        {
+            doorOpen = true;
+            m_Door.interactable = true;
+            visitorController.VisitorInDoor(doorOpen);
+        });
+    }
+
+    public void DoorClose()
+    {
+        m_Door.interactable = false;
+        m_DoorSound.PlayOneShot(doorCloseSFX);
+        m_Door.transform.DOScaleX(1f, .3f).OnComplete(() =>
+        {
+            doorOpen = false;
+            m_Door.interactable = true;
+            visitorController.VisitorInDoor(doorOpen);
+        });
     }
 
     public void DamageHouse() 
@@ -102,5 +110,9 @@ public class GameState : State
             case -1: GameManager.Instance.NextState(); break;
             default: m_houseStatus.sprite = statusNormal; break;
         }
+        Sequence StatusAnim = DOTween.Sequence()
+            .Append(m_houseStatus.rectTransform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), .3f))
+            .Join(m_houseStatus.rectTransform.DOShakeRotation(1, 30, 10, 90, false , ShakeRandomnessMode.Harmonic))
+            .Append(m_houseStatus.rectTransform.DOScale(Vector3.one, .3f));
     }
 }

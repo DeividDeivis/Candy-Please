@@ -9,6 +9,7 @@ public class MenuState : State
 {
     [SerializeField] private AudioSource m_audio;
     [SerializeField] private Button Startgame;
+    [SerializeField] private RectTransform BGContainer;
 
     private Sequence MenuSequence;
 
@@ -33,10 +34,12 @@ public class MenuState : State
     private void Animation() 
     {
         Startgame.GetComponent<Image>().color = new Color(1, 1, 1, 0);
-        Startgame.transform.localScale = new Vector3(.3f, .3f, 1);
+        Startgame.transform.localScale = new Vector3(.3f, .3f, 1f);
+        BGContainer.localPosition = new Vector3(0f, -120f, 0f);
 
-        MenuSequence = DOTween.Sequence().SetEase(Ease.Linear).SetDelay(1f);
+        MenuSequence = DOTween.Sequence().SetEase(Ease.Linear);
         MenuSequence
+            .Append(BGContainer.DOLocalMove(Vector3.zero, 4f))
             .Append(Startgame.GetComponent<Image>().DOFade(1, .15f))
             .Join(Startgame.transform.DOScaleY(1.3f, .15f))
             .Append(Startgame.transform.DOScaleX(1.3f, .15f))

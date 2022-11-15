@@ -19,12 +19,6 @@ public class CandiesManager : MonoBehaviour
         Candies = aux;
     }
 
-    public void ResetCandies() 
-    {
-        foreach (GameObject go in Candies)
-            Destroy(go);
-    }
-
     public List<GameObject> GetCandies() { return Candies; }
 }
 

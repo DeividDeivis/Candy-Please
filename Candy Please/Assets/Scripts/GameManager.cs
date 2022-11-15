@@ -91,18 +91,21 @@ public class GameManager : MonoBehaviour
         m_Visitors.SpawnVisitor();
         m_Candies.SortCandiesList();
         m_UI.LoadCandiesInUI(m_Candies.GetCandies());
+        DialogSystem.Instance.WriteText("TOC TOC TOC!!!");
     }
 
     public void CheckVisitorStatus(VisitorStatus status) 
     {
-        if(status == VisitorStatus.Angry)
-            states[1].GetComponent<GameState>().DamageHouse();
+        GameState gameState = states[1].GetComponent<GameState>();
+        if (status == VisitorStatus.Angry)
+            gameState.DamageHouse();
+        gameState.DoorClose();
         m_Visitors.SpawnVisitor();
     }
 
     public void EndGame() 
     {
-        m_Candies.ResetCandies();
+        m_UI.ResetCandiesInUI();
     }
     #endregion
 }
