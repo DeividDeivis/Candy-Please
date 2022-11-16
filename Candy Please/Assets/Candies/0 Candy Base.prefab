@@ -90,4 +90,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Type: 3
-  description: 
+  Description: 
+  Icon: {fileID: 5230991068162774039}

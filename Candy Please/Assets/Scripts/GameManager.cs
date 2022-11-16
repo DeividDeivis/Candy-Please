@@ -19,11 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool startGame;
     [Tooltip("Cuanto dura la partida?")]
     [SerializeField] private float GameTime;
-    private float currentTime;
-
-    public static GameManager Instance;
+    private float currentTime;  
 
     #region Singleton
+    public static GameManager Instance;
     private void Awake()
     {
         Instance = Instance == null ? this : Instance;

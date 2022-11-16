@@ -7,19 +7,10 @@ using System;
 public class DialogSystem : MonoBehaviour
 {
     #region Singleton
-    private static DialogSystem instance;
-    public static DialogSystem Instance => instance;
-
+    public static DialogSystem Instance;
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
+        Instance = Instance == null ? this : Instance;
     }
     #endregion
 

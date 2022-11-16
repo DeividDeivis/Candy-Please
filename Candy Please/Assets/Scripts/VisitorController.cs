@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
-public class VisitorController : MonoBehaviour
+public class VisitorController : MonoBehaviour, IDropHandler
 {
     [SerializeField] private Visitor visitorData;
     private float patientPercentage;
@@ -112,6 +113,11 @@ public class VisitorController : MonoBehaviour
             .OnComplete(() => {
                 GameManager.Instance.CheckVisitorStatus(currentVisitorStatus);
             });
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log("Drop");
     }
 }
 
