@@ -1399,10 +1399,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 682331189}
     - target: {fileID: 8916401309470246883, guid: c03186d33c0959b4db59062434e4e775, type: 3}
-      propertyPath: GameTime
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8916401309470246883, guid: c03186d33c0959b4db59062434e4e775, type: 3}
       propertyPath: m_Candies
       value: 
       objectReference: {fileID: 1744471556}
