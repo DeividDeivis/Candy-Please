@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.EventSystems;
 
-public class VisitorController : MonoBehaviour, IDropHandler
+public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     [SerializeField] private Visitor visitorData;
     private float patientPercentage;
@@ -15,7 +15,6 @@ public class VisitorController : MonoBehaviour, IDropHandler
     [SerializeField] private bool VisitorServed = false; // Fue atendido este visitante?
     [Header("Visitor UI Settings")]
     [SerializeField] private Image VisitorAvatar;
-    [SerializeField] private Button VisitorBtn;
     private Sequence visitorAnimation;
 
     [Header("SFX Settings")]
@@ -26,7 +25,6 @@ public class VisitorController : MonoBehaviour, IDropHandler
     // Start is called before the first frame update
     void Start()
     {
-        VisitorBtn.onClick.AddListener(VisitorSpeak);
         VisitorAvatar.rectTransform.localPosition = new Vector3(65, 0, 0);
         VisitorAvatar.color = Color.black;
     }
@@ -50,6 +48,7 @@ public class VisitorController : MonoBehaviour, IDropHandler
             if (currentPatient <= 0) 
             { 
                 currentVisitorStatus = VisitorStatus.Angry;
+                _audio.PlayOneShot(sfxAngry);
                 VisitorOut(); 
             }                         
         }
@@ -79,7 +78,7 @@ public class VisitorController : MonoBehaviour, IDropHandler
             DialogSystem.Instance.WriteText("TOC TOC TOC!!!");
     }
 
-    public void VisitorSpeak()
+    private void VisitorSpeak()
     {
         string message = visitorData.Dialog;
         DialogSystem.Instance.WriteText(message);
@@ -89,7 +88,7 @@ public class VisitorController : MonoBehaviour, IDropHandler
     {
         VisitorAvatar.rectTransform.localPosition = new Vector3(65, 0, 0);
         VisitorAvatar.color = Color.black;
-        VisitorBtn.interactable = false;
+        VisitorAvatar.raycastTarget = false;
 
         visitorAnimation = DOTween.Sequence().SetEase(Ease.Linear);
         visitorAnimation
@@ -97,27 +96,57 @@ public class VisitorController : MonoBehaviour, IDropHandler
             .Append(VisitorAvatar.DOColor(Color.white, .3f))
             .OnComplete(()=> { 
                 VisitorSpeak();
-                VisitorBtn.interactable = true;
+                VisitorAvatar.raycastTarget = true;
             });
     }
 
     private void VisitorOut()
     {
         VisitorIsWaiting = false;
-        VisitorBtn.interactable = false;
+        VisitorAvatar.raycastTarget = false;
 
-        visitorAnimation = DOTween.Sequence().SetEase(Ease.Linear);
+        visitorAnimation = DOTween.Sequence().SetEase(Ease.Linear).SetDelay(1);
         visitorAnimation
             .Append(VisitorAvatar.DOColor(Color.black, .3f))
             .Append(VisitorAvatar.rectTransform.DOLocalMove(new Vector3(-65, 0, 0), .3f))            
             .OnComplete(() => {
                 GameManager.Instance.CheckVisitorStatus(currentVisitorStatus);
             });
+    }  
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        VisitorSpeak();
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("Drop");
+        Debug.Log("DROP IN: " + eventData.pointerDrag.name);
+        Candy candyDroped = eventData.pointerDrag.GetComponent<Candy>();
+        CheckCandyLiked(candyDroped);
+    }
+
+    private void CheckCandyLiked(Candy candy) 
+    {
+        bool liked = false;
+        foreach(CandyType type in visitorData.CandiesLike)
+            if(candy.Type == type)
+                liked = true;
+
+        if (liked)
+        {
+            VisitorAvatar.sprite = visitorData.Happy;
+            currentVisitorStatus = VisitorStatus.Happy;
+            _audio.PlayOneShot(sfxHappy);
+        }
+        else 
+        {
+            VisitorAvatar.sprite = visitorData.Angry;
+            currentVisitorStatus = VisitorStatus.Angry;
+            _audio.PlayOneShot(sfxAngry);
+        }
+
+        VisitorOut();
     }
 }
 

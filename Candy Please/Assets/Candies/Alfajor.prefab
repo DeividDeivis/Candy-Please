@@ -96,6 +96,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5230991068162774037, guid: 416a89077b85f22468f561ae6d0cdfab, type: 3}
+      propertyPath: Description
+      value: "Alfajor Guaymallen TRIPLE. Una delicia de la industria nacional.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230991068162774037, guid: 416a89077b85f22468f561ae6d0cdfab, type: 3}
       propertyPath: description
       value: "Alfajor Guaymallen TRIPLE, una delicia de la industria nacional.\r"
       objectReference: {fileID: 0}

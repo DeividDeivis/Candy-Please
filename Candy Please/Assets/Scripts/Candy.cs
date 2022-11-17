@@ -36,7 +36,8 @@ public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointer
         //RectTransform rectTransform = GetComponent<RectTransform>();
         RectTransform rectTransform = CandiesManager.Instance.CandyData();
         Canvas canvas = FindObjectOfType<Canvas>();
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        rectTransform.position = Input.mousePosition;
     }
 }
 

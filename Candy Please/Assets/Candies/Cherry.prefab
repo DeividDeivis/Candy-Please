@@ -96,6 +96,10 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5230991068162774037, guid: 416a89077b85f22468f561ae6d0cdfab, type: 3}
+      propertyPath: Description
+      value: Paleta AB positivo, parece frutilla o cereza.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230991068162774037, guid: 416a89077b85f22468f561ae6d0cdfab, type: 3}
       propertyPath: description
       value: Paleta AB positivo, parece frutilla?
       objectReference: {fileID: 0}
