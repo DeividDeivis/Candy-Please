@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
         currentTime = GameTime;
         startGame = false;
         GameStatus = gameStatusType.Win;
+        m_Visitors.Initialize();
     }
 
     public void StartGame() 

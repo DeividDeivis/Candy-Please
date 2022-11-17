@@ -12,8 +12,6 @@ public class GameState : State
     [SerializeField] private Button m_Door;
     private bool doorOpen = false;
     [SerializeField] private AudioSource m_DoorSound;
-    [SerializeField] private AudioClip doorOpenSFX;
-    [SerializeField] private AudioClip doorCloseSFX;
 
     [Header("Inventory Settings")]
     [SerializeField] private Transform m_InventoryArea;
@@ -78,7 +76,7 @@ public class GameState : State
     public void DoorOpen() 
     {
         m_Door.interactable = false;
-        m_DoorSound.PlayOneShot(doorOpenSFX);
+        m_DoorSound.PlayOneShot(AudioManager.Instance.GetSound("Door Open"));
         m_Door.transform.DOScaleX(.1f, .3f).OnComplete(() =>
         {
             doorOpen = true;
@@ -90,7 +88,7 @@ public class GameState : State
     public void DoorClose()
     {
         m_Door.interactable = false;
-        m_DoorSound.PlayOneShot(doorCloseSFX);
+        m_DoorSound.PlayOneShot(AudioManager.Instance.GetSound("Door Close"));
         m_Door.transform.DOScaleX(1f, .3f).OnComplete(() =>
         {
             doorOpen = false;

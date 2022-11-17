@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviour
         { 
             GameObject instantiate = Instantiate(candy, m_CandiesSpawnArea);
             instantiate.transform.localScale = Vector3.zero;
-            instantiate.transform.DOScale(Vector3.one, .3f);
+            instantiate.GetComponent<Candy>().ActiveCandy();
         }
     }
 

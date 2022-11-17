@@ -14,6 +14,12 @@ public class VisitorsManager : MonoBehaviour
     /// </summary>
     public float VisitorPatience = 10;
 
+    public void Initialize() 
+    { 
+        currentVisitor = null;
+        controller.Initialized();
+    }
+
     public Visitor GetNewVisitor() 
     {
         Visitor visitor = visitors[Random.Range(0, visitors.Count)];

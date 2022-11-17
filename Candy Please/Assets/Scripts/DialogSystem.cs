@@ -21,21 +21,35 @@ public class DialogSystem : MonoBehaviour
     [SerializeField][Range(0f, 1f)] private float textSpeed;
     private Coroutine currentCoroutine;
 
-    public void WriteText(string dialog) 
+    public void WriteText(List<string> dialogs) 
     {
         if(currentCoroutine != null)
             StopCoroutine(currentCoroutine);
         DialogText.text = "";
-        char[] letters = dialog.ToCharArray();
-        currentCoroutine = StartCoroutine(WriteMachine(letters));
+        currentCoroutine = StartCoroutine(WriteMachine(dialogs));
     }
 
-    private IEnumerator WriteMachine(char[] letters) 
-    { 
-        foreach (char _char in letters) 
-        { 
-            DialogText.text += _char;
-            yield return new WaitForSeconds(textSpeed);
-        }
+    public void WriteText(string dialogs)
+    {
+        if (currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
+        DialogText.text = "";
+        currentCoroutine = StartCoroutine(WriteMachine(new List<string>() { dialogs }));
+    }
+
+    private IEnumerator WriteMachine(List<string> dialogs) 
+    {
+        foreach (string dialog in dialogs) 
+        {
+            DialogText.text = "";
+            char[] letters = dialog.ToCharArray();
+
+            foreach (char _char in letters) 
+            { 
+                DialogText.text += _char;
+                yield return new WaitForSeconds(textSpeed);
+            }
+            yield return new WaitForSeconds(2f);
+        }       
     }
 }

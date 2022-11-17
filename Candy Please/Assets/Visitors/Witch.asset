@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Witch
   m_EditorClassIdentifier: 
   VisitorID: Witch
-  Dialog: "Hola, NYA! (\u2267\u25E1\u2266) \u2661 Soy una brujita neko kawaii <333
-    Amo el anime\r (\u2764\u03C9\u2764)\r"
+  Dialog:
+  - "Hola, NYA! (\u2267\u25E1\u2266)  Soy una brujita neko kawaii <333 Amo el anime\r
+    , blackpink (*w*) y mi pelito rosa (>.<) bueno\u2026 me gusta todo lo rosa \xF9w\xFA
+    \r\n"
   Normal: {fileID: 1742589511, guid: 54361c338aa62954384a4ceb39e7b24a, type: 3}
   Impatient: {fileID: -982401845, guid: 54361c338aa62954384a4ceb39e7b24a, type: 3}
   Angry: {fileID: -632617927, guid: 54361c338aa62954384a4ceb39e7b24a, type: 3}

@@ -8,30 +8,33 @@ public class EndState : State
 {
     [Header("Screen Setting")]
     [SerializeField] private Image EndScreenBG;
+    [SerializeField] private Button MenuBtn;
     [SerializeField] private AudioSource m_audio;
 
     [Header("Win Setting")]
     [SerializeField] private Sprite WinBG;
-    [SerializeField] private AudioClip WinSFX;
 
     [Header("Lose Setting")]
     [SerializeField] private Sprite LoseBG;
-    [SerializeField] private AudioClip LoseSFX;
 
     public override void OnEnterState() 
     {
         if (GameManager.Instance.GameStatus == gameStatusType.Win)
         {
             EndScreenBG.sprite = WinBG;
-            m_audio.PlayOneShot(WinSFX);
+            m_audio.PlayOneShot(AudioManager.Instance.GetSound("Victory"));
         }
         else 
         {
             EndScreenBG.sprite = LoseBG;
-            m_audio.PlayOneShot(LoseSFX);
+            m_audio.PlayOneShot(AudioManager.Instance.GetSound("Defeat"));
         }
 
-        StartCoroutine(WaitInScreen());
+        MenuBtn.onClick.AddListener(() => {
+            m_audio.PlayOneShot(AudioManager.Instance.GetSound("Click"));
+            GameManager.Instance.NextState(); 
+        });
+        Animation();
     }
     public override void OnUpdateState() { }
     public override void OnExitState() 
@@ -39,10 +42,18 @@ public class EndState : State
         GameManager.Instance.EndGame();
     }
 
-    private IEnumerator WaitInScreen() 
+    private void Animation() 
     {
-        yield return new WaitForSeconds(5);
-        GameManager.Instance.NextState();
+        MenuBtn.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        MenuBtn.transform.localScale = new Vector3(.3f, .3f, 1f);
+
+        Sequence MenuSequence = DOTween.Sequence().SetEase(Ease.Linear);
+        MenuSequence
+            .Append(MenuBtn.GetComponent<Image>().DOFade(1, .15f))
+            .Join(MenuBtn.transform.DOScaleY(1.3f, .15f))
+            .Append(MenuBtn.transform.DOScaleX(1.3f, .15f))
+            .Join(MenuBtn.transform.DOScaleY(1f, .15f))
+            .Append(MenuBtn.transform.DOScaleX(1f, .15f));
     }
 }
 

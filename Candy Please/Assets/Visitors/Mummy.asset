@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Mummy
   m_EditorClassIdentifier: 
   VisitorID: Mummy
-  Dialog: "\xA1Este es mi Halloween 2093487! Las decoraciones mejoran cada a\xF1o.
-    En mis tiempos solo quit\xE1bamos cerebros por la nariz."
+  Dialog:
+  - "\xA1Este es mi Halloween 2093487! Las decoraciones mejoran cada a\xF1o.\n"
+  - "En mis tiempos solo quit\xE1bamos cerebros por la nariz.\r\n"
   Normal: {fileID: -263466455, guid: 0378d7796fe7a744091193ad12360049, type: 3}
   Impatient: {fileID: 1601962721, guid: 0378d7796fe7a744091193ad12360049, type: 3}
   Angry: {fileID: -1669754614, guid: 0378d7796fe7a744091193ad12360049, type: 3}

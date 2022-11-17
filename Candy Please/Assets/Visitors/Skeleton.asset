@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Skeleton
   m_EditorClassIdentifier: 
   VisitorID: Skeleton
-  Dialog: "Estoy hecho puro hueso. Quiz\xE1s deber\xEDa comer algo super-ultra-mega-archi-
+  Dialog:
+  - "Estoy hecho puro hueso. Quiz\xE1s deber\xEDa comer algo super-ultra-mega-archi-
     PESADO"
   Normal: {fileID: 690293256, guid: 0bf0c295735e1314cb2b720ab5bbc264, type: 3}
   Impatient: {fileID: -1822340671, guid: 0bf0c295735e1314cb2b720ab5bbc264, type: 3}

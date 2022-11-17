@@ -10,22 +10,20 @@ public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointer
     [Header("Type of Candy")]
     public CandyType Type;
     [Header("Description of the candy")]
-    [TextArea(2, 10)] public string Description;
+    [TextArea(3, 10)] public string Description;
     [Header("Image of the Candy")]
     public Image Icon;
     [Header("SFX")]
     [SerializeField] private AudioSource _audio;
-    [SerializeField] private AudioClip pickUpSfx;
     [Header("Cooldown")]
     [SerializeField] private float pickUpCD;
-    private float currentCD;
 
-
+    #region Events
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("Start Drag");
         CandiesManager.Instance.BeginDragCandy(this, transform.position);
-        _audio.PlayOneShot(pickUpSfx);
+        _audio.PlayOneShot(AudioManager.Instance.GetSound("Pick Up"));
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -46,6 +44,18 @@ public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointer
         Canvas canvas = FindObjectOfType<Canvas>();
         //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
         rectTransform.position = Input.mousePosition;
+    }
+    #endregion
+
+    public void ActiveCandy() { transform.DOScale(Vector3.one, .3f); }
+    public void DeactiveCandy() 
+    { 
+        transform.DOScale(Vector3.zero, .15f).OnComplete(()=> StartCoroutine(WaitToUse()));
+    }
+    private IEnumerator WaitToUse() 
+    { 
+        yield return new WaitForSecondsRealtime(pickUpCD);
+        ActiveCandy();
     }
 }
 

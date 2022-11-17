@@ -19,14 +19,11 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
 
     [Header("SFX Settings")]
     [SerializeField] private AudioSource _audio;
-    [SerializeField] private AudioClip sfxHappy;
-    [SerializeField] private AudioClip sfxAngry;
 
     // Start is called before the first frame update
     void Start()
     {
-        VisitorAvatar.rectTransform.localPosition = new Vector3(65, 0, 0);
-        VisitorAvatar.color = Color.black;
+        Initialized();
     }
 
     // Update is called once per frame
@@ -48,10 +45,16 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
             if (currentPatient <= 0) 
             { 
                 currentVisitorStatus = VisitorStatus.Angry;
-                _audio.PlayOneShot(sfxAngry);
+                _audio.PlayOneShot(AudioManager.Instance.GetSound("Sad"));
                 VisitorOut(); 
             }                         
         }
+    }
+
+    public void Initialized()
+    {
+        VisitorAvatar.rectTransform.localPosition = new Vector3(65, 0, 0);
+        VisitorAvatar.color = Color.black;
     }
 
     public void LoadVisitorInfo(Visitor newVisitor, float patient) 
@@ -80,7 +83,7 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
 
     private void VisitorSpeak()
     {
-        string message = visitorData.Dialog;
+        List<string> message = visitorData.Dialog;
         DialogSystem.Instance.WriteText(message);
     }
 
@@ -117,12 +120,15 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
     public void OnPointerClick(PointerEventData eventData)
     {
         VisitorSpeak();
+        _audio.PlayOneShot(AudioManager.Instance.GetSound("Click"));
     }
 
     public void OnDrop(PointerEventData eventData)
     {
+        _audio.PlayOneShot(AudioManager.Instance.GetSound("Drop"));
         Debug.Log("DROP IN: " + eventData.pointerDrag.name);
         Candy candyDroped = eventData.pointerDrag.GetComponent<Candy>();
+        candyDroped.DeactiveCandy();
         CheckCandyLiked(candyDroped);
     }
 
@@ -137,13 +143,13 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
         {
             VisitorAvatar.sprite = visitorData.Happy;
             currentVisitorStatus = VisitorStatus.Happy;
-            _audio.PlayOneShot(sfxHappy);
+            _audio.PlayOneShot(AudioManager.Instance.GetSound("Happy"));
         }
         else 
         {
             VisitorAvatar.sprite = visitorData.Angry;
             currentVisitorStatus = VisitorStatus.Angry;
-            _audio.PlayOneShot(sfxAngry);
+            _audio.PlayOneShot(AudioManager.Instance.GetSound("Sad"));
         }
 
         VisitorOut();

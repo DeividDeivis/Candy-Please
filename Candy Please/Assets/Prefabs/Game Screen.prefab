@@ -323,6 +323,8 @@ MonoBehaviour:
   Type: 3
   Description: 
   Icon: {fileID: 3122869297877435816}
+  _audio: {fileID: 0}
+  pickUpCD: 0
 --- !u!1 &4132821697983644707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,8 +1086,6 @@ MonoBehaviour:
   VisitorServed: 0
   VisitorAvatar: {fileID: 93814393662375621}
   _audio: {fileID: 5524837172282810653}
-  sfxHappy: {fileID: 8300000, guid: 128966c0f3386f543badb1836073615a, type: 3}
-  sfxAngry: {fileID: 8300000, guid: 2d41de667e088f942b92cf005e07db52, type: 3}
 --- !u!114 &2987401430233541232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,8 +1393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -32, y: -47.5}
-  m_SizeDelta: {x: 155, y: 25}
+  m_AnchoredPosition: {x: -35, y: -47.5}
+  m_SizeDelta: {x: 157, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6811826604499087303
 CanvasRenderer:

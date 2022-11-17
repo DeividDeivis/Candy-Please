@@ -15,7 +15,10 @@ public class MenuState : State
 
     public override void OnEnterState() 
     {
-        Startgame.onClick.AddListener(()=> GameManager.Instance.NextState());
+        Startgame.onClick.AddListener(()=> {
+            m_audio.PlayOneShot(AudioManager.Instance.GetSound("Click"));
+            GameManager.Instance.NextState(); 
+        });
         m_audio.Play();
         Animation();     
     }

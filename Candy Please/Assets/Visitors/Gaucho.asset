@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Gaucho
   m_EditorClassIdentifier: 
   VisitorID: Gaucho
-  Dialog: Dulce o truco? Amargo y retruco
+  Dialog:
+  - Dulce o truco? Amargo y retruco
   Normal: {fileID: 2068989463, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
   Impatient: {fileID: 650755398, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
   Angry: {fileID: -775642685, guid: f5e4fac8e2fafd049840e672ab9a1cbb, type: 3}
