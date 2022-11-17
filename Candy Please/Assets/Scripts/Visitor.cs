@@ -10,7 +10,7 @@ public class Visitor : ScriptableObject
     public string VisitorID;
 
     [Header("Visitor Dialog")]
-    [TextArea(3, 10)] public List<string> Dialog;
+    [TextArea(2, 10)] public List<string> Dialog;
 
     [Header("Animations")]
     public Sprite Normal;

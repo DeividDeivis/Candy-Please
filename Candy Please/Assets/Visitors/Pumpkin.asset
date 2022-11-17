@@ -14,11 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VisitorID: Pumpkin
   Dialog:
-  - "Me gustan las CALABAZAS! CA-LA-BA-ZAS! CA-LA-BA-ZAS!\r CA-LA-BA-ZAS! CA-LA-BA-ZAS!
-    \n"
-  - 'CA-LA-BA-ZAS! CA-LA-BA-ZAS! CA-LA-BA-ZAS! CA-LA-BA-ZAS! CA-LA-BA-ZAS!
-
-'
+  - "Me gustan las CALABAZAS! CA-LA-BA-ZAS! CA-LA-BA-ZAS!\r\nCA-LA-BA-ZAS! CA-LA-BA-ZAS!
+    CA-LA-BA-ZAS! CA-LA-BA-ZAS!CA-LA-BA-ZAS!\r"
   Normal: {fileID: -730746878, guid: f34a8d16ddb2cd64194e1d84f41d44a4, type: 3}
   Impatient: {fileID: -1133624719, guid: f34a8d16ddb2cd64194e1d84f41d44a4, type: 3}
   Angry: {fileID: 1295927285, guid: f34a8d16ddb2cd64194e1d84f41d44a4, type: 3}

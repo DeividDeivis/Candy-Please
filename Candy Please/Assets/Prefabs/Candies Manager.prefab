@@ -60,3 +60,5 @@ MonoBehaviour:
   - {fileID: 4611633912311305421, guid: f8622132c3f5d3243ad598fddb69284c, type: 3}
   - {fileID: 1038063803495179763, guid: b87d411227a850a4b8288ca179ca5fe4, type: 3}
   - {fileID: 1008787705485641019, guid: a5739dd567f48a74ca9bde1f10f37a62, type: 3}
+  - {fileID: 4803984815617443099, guid: 9ac1efb476d839e40b643c48b4959035, type: 3}
+  spawnedCandy: {fileID: 0}

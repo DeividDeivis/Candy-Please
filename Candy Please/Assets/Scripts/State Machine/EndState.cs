@@ -44,11 +44,13 @@ public class EndState : State
 
     private void Animation() 
     {
+        EndScreenBG.color = new Color(0, 0, 0, 1);
         MenuBtn.GetComponent<Image>().color = new Color(1, 1, 1, 0);
         MenuBtn.transform.localScale = new Vector3(.3f, .3f, 1f);
 
         Sequence MenuSequence = DOTween.Sequence().SetEase(Ease.Linear);
         MenuSequence
+            .Append(EndScreenBG.DOColor(Color.white, 1f))
             .Append(MenuBtn.GetComponent<Image>().DOFade(1, .15f))
             .Join(MenuBtn.transform.DOScaleY(1.3f, .15f))
             .Append(MenuBtn.transform.DOScaleX(1.3f, .15f))

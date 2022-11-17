@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IDragHandler
+public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointerClickHandler, IDragHandler
 {
     [Header("Type of Candy")]
     public CandyType Type;
@@ -32,7 +32,7 @@ public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointer
         CandiesManager.Instance.EndDragCandy();
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData eventData)
     {
         DialogSystem.Instance.WriteText(Description);
     }
