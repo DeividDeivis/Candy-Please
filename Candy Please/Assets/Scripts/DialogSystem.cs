@@ -19,12 +19,15 @@ public class DialogSystem : MonoBehaviour
     /// Cuantos segundos de espera hay entre cada letra?
     /// </summary>
     [SerializeField][Range(0f, 1f)] private float textSpeed;
+    private Coroutine currentCoroutine;
 
     public void WriteText(string dialog) 
     {
+        if(currentCoroutine != null)
+            StopCoroutine(currentCoroutine);
         DialogText.text = "";
         char[] letters = dialog.ToCharArray();
-        StartCoroutine(WriteMachine(letters));
+        currentCoroutine = StartCoroutine(WriteMachine(letters));
     }
 
     private IEnumerator WriteMachine(char[] letters) 

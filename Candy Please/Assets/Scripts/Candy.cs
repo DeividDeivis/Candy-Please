@@ -3,21 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IDragHandler
 {
     [Header("Type of Candy")]
     public CandyType Type;
     [Header("Description of the candy")]
-    [TextArea(2, 10)]public string Description;
+    [TextArea(2, 10)] public string Description;
     [Header("Image of the Candy")]
     public Image Icon;
+    [Header("SFX")]
+    [SerializeField] private AudioSource _audio;
+    [SerializeField] private AudioClip pickUpSfx;
+    [Header("Cooldown")]
+    [SerializeField] private float pickUpCD;
+    private float currentCD;
 
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("Start Drag");
         CandiesManager.Instance.BeginDragCandy(this, transform.position);
+        _audio.PlayOneShot(pickUpSfx);
     }
 
     public void OnEndDrag(PointerEventData eventData)

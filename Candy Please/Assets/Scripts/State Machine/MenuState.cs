@@ -39,7 +39,7 @@ public class MenuState : State
 
         MenuSequence = DOTween.Sequence().SetEase(Ease.Linear);
         MenuSequence
-            .Append(BGContainer.DOLocalMove(Vector3.zero, 4f))
+            .Append(BGContainer.DOLocalMove(Vector3.zero, 3f))
             .Append(Startgame.GetComponent<Image>().DOFade(1, .15f))
             .Join(Startgame.transform.DOScaleY(1.3f, .15f))
             .Append(Startgame.transform.DOScaleX(1.3f, .15f))
