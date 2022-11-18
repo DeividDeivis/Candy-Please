@@ -67,3 +67,5 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 128966c0f3386f543badb1836073615a, type: 3}
   - audioID: Sad
     audioClip: {fileID: 8300000, guid: 2d41de667e088f942b92cf005e07db52, type: 3}
+  - audioID: Hit Door
+    audioClip: {fileID: 8300000, guid: 2d41de667e088f942b92cf005e07db52, type: 3}

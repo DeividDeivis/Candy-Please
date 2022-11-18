@@ -702,9 +702,17 @@ PrefabInstance:
       value: UI Manager
       objectReference: {fileID: 0}
     - target: {fileID: 3206796722587794313, guid: 815d33abf2d507041a427bcb9a74a3ff, type: 3}
+      propertyPath: m_Door
+      value: 
+      objectReference: {fileID: 4132821699426639643}
+    - target: {fileID: 3206796722587794313, guid: 815d33abf2d507041a427bcb9a74a3ff, type: 3}
       propertyPath: m_Clock
       value: 
       objectReference: {fileID: 4132821699426639637}
+    - target: {fileID: 3206796722587794313, guid: 815d33abf2d507041a427bcb9a74a3ff, type: 3}
+      propertyPath: m_DoorAudio
+      value: 
+      objectReference: {fileID: 4132821699426639640}
     - target: {fileID: 3206796722587794313, guid: 815d33abf2d507041a427bcb9a74a3ff, type: 3}
       propertyPath: m_ClockHandMin
       value: 
@@ -843,10 +851,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 543801176}
     m_Modifications:
-    - target: {fileID: 4132821698005800378, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4132821698215163988, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -935,64 +939,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Screen
       objectReference: {fileID: 0}
-    - target: {fileID: 7097286343619589838, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7097286343619589838, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7097286343619589838, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 419380499}
-    - target: {fileID: 7097286343619589838, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7097286343619589838, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: WriteText
-      objectReference: {fileID: 0}
-    - target: {fileID: 7097286343619589838, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogSystem, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7097286343619589838, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Solo es una planta a la que le falta ser regada.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7097286343619589838, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637189263419426113, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637189263419426113, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 419380499}
-    - target: {fileID: 8637189263419426113, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: WriteText
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637189263419426113, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DialogSystem, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637189263419426113, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Solo es una plata, le falta agua.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8637189263419426113, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8637189263419426113, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
 --- !u!224 &4132821699426639636 stripped
 RectTransform:
@@ -1047,6 +994,11 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 2021517129, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
   m_PrefabInstance: {fileID: 4132821699426639635}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &4132821699426639643 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4132821698005800377, guid: dfd21de95d6bca544a73d8624c13f0b3, type: 3}
+  m_PrefabInstance: {fileID: 4132821699426639635}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7011981196010183144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1057,10 +1009,6 @@ PrefabInstance:
     - target: {fileID: 7011981195479655340, guid: 0483ccd6aa2da0d4abdbf5a2da4cae7d, type: 3}
       propertyPath: m_Name
       value: Menu Screen
-      objectReference: {fileID: 0}
-    - target: {fileID: 7011981195479655340, guid: 0483ccd6aa2da0d4abdbf5a2da4cae7d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7011981195479655341, guid: 0483ccd6aa2da0d4abdbf5a2da4cae7d, type: 3}
       propertyPath: m_Pivot.x
@@ -1410,10 +1358,6 @@ PrefabInstance:
       propertyPath: m_Candies
       value: 
       objectReference: {fileID: 1744471556}
-    - target: {fileID: 8916401309470246883, guid: c03186d33c0959b4db59062434e4e775, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8916401309470246883, guid: c03186d33c0959b4db59062434e4e775, type: 3}
       propertyPath: m_Visitors
       value: 

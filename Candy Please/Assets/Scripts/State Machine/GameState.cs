@@ -75,6 +75,7 @@ public class GameState : State
 
     public void DoorOpen() 
     {
+        UIManager.Instance.StopHitDoor();
         m_Door.interactable = false;
         m_DoorSound.PlayOneShot(AudioManager.Instance.GetSound("Door Open"));
         m_Door.transform.DOScaleX(.1f, .3f).OnComplete(() =>

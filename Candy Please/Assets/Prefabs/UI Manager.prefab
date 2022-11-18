@@ -53,3 +53,5 @@ MonoBehaviour:
   m_ClockHandHour: {fileID: 0}
   m_ClockHandMin: {fileID: 0}
   m_CandiesSpawnArea: {fileID: 0}
+  m_Door: {fileID: 0}
+  m_DoorAudio: {fileID: 0}

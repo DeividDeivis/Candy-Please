@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Candies: {fileID: 0}
   GameStatus: 0
   startGame: 0
-  GameTime: 90
+  GameTime: 120
 --- !u!114 &1006180315927549437
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -45,8 +45,8 @@ public class GameManager : MonoBehaviour
 
         if (startGame) 
         {
-            currentTime -= Time.deltaTime;
-            if(currentTime <= 0) 
+            currentTime += Time.deltaTime;
+            if(currentTime >= GameTime) 
             { 
                 startGame = false;
                 NextState();
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     #region GameSettings
     public void Initialize() 
     {
-        currentTime = GameTime;
+        currentTime = 0;
         startGame = false;
         GameStatus = gameStatusType.Win;
         m_Visitors.Initialize();
@@ -88,10 +88,10 @@ public class GameManager : MonoBehaviour
     {
         m_UI.SetClockTime(GameTime);
         startGame = true;
-        m_Visitors.SpawnVisitor();
+        m_Visitors.SpawnVisitor(GameTime, currentTime);
         m_Candies.SortCandiesList();
         m_UI.LoadCandiesInUI(m_Candies.GetCandies());
-        DialogSystem.Instance.WriteText("TOC TOC TOC!!!");
+        m_UI.HitDoor();
     }
 
     public void CheckVisitorStatus(VisitorStatus status) 
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         if (status == VisitorStatus.Angry)
             gameState.DamageHouse();
         gameState.DoorClose();
-        m_Visitors.SpawnVisitor();
+        m_Visitors.SpawnVisitor(GameTime, currentTime);
     }
 
     public void EndGame() 

@@ -12,7 +12,14 @@ public class VisitorsManager : MonoBehaviour
     /// <summary>
     /// Cuantos segundos puede esperar un Visitante para recibir su caramelo?.
     /// </summary>
-    public float VisitorPatience = 10;
+    public List<Patience> VisitorPatience = new List<Patience>();
+
+    [System.Serializable]
+    public class Patience 
+    {
+        [Range(0, 100)]public int gamePercentage;
+        public float _patience;
+    }
 
     public void Initialize() 
     { 
@@ -28,9 +35,18 @@ public class VisitorsManager : MonoBehaviour
         return currentVisitor;
     }
 
-    public void SpawnVisitor() 
+    public void SpawnVisitor(float maxTime, float currentTime) 
     { 
+        float currentGamePercentage = (currentTime/ maxTime) * 100;
         Visitor newVisitor = GetNewVisitor();
-        controller.LoadVisitorInfo(newVisitor, VisitorPatience);
+        float newPatient = 0;
+
+        foreach (Patience patience in VisitorPatience) 
+        {
+            if (currentGamePercentage >= patience.gamePercentage)
+                newPatient = patience._patience;
+        }
+
+        controller.LoadVisitorInfo(newVisitor, newPatient);
     }
 }

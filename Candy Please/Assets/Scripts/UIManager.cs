@@ -16,6 +16,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform m_ClockHandHour;
     [SerializeField] private Transform m_ClockHandMin;
     [SerializeField] private Transform m_CandiesSpawnArea;
+    [SerializeField] private Transform m_Door;
+    [SerializeField] private AudioSource m_DoorAudio;
+    private Coroutine hitDoorCoroutine;
+
+    #region Singleton
+    public static UIManager Instance;
+    private void Awake()
+    {
+        Instance = Instance == null ? this : Instance;
+    }
+    #endregion
 
     public void SetSreen(int index)
     {
@@ -50,5 +61,26 @@ public class UIManager : MonoBehaviour
     {
         foreach (Candy candy in m_CandiesSpawnArea.GetComponentsInChildren<Candy>())
             Destroy(candy.gameObject);
+    }
+
+    public void HitDoor()
+    {
+        DialogSystem.Instance.WriteText("TOC TOC TOC!!!");
+        hitDoorCoroutine = StartCoroutine(Hit());
+    }
+
+    private IEnumerator Hit() 
+    {
+        for (int i = 0; i < 3; i++) 
+        {
+            m_Door.DOShakeRotation(.3f, 10, 10, 90, false, ShakeRandomnessMode.Harmonic);
+            m_DoorAudio.PlayOneShot(AudioManager.Instance.GetSound("Hit Door"));
+            yield return new WaitForSeconds(.3f);
+        }
+    }
+
+    public void StopHitDoor() 
+    {
+        StopCoroutine(hitDoorCoroutine);
     }
 }

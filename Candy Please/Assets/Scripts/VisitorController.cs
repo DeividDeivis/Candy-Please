@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using System.Data;
 
 public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
@@ -33,18 +34,13 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
         {
             currentPatient -= Time.deltaTime;
 
-            if (currentPatient < patientPercentage)
+            if (currentPatient < patientPercentage && currentVisitorStatus != VisitorStatus.Impatient)
             {
-                VisitorAvatar.sprite = visitorData.Impatient;
-                currentVisitorStatus = VisitorStatus.Impatient;
+                UpdateStatus(VisitorStatus.Impatient);
             }
-            if (currentPatient <= 1) 
-            { 
-                VisitorAvatar.sprite = visitorData.Angry;               
-            }
-            if (currentPatient <= 0) 
-            { 
-                currentVisitorStatus = VisitorStatus.Angry;
+            if (currentPatient <= 0 && currentVisitorStatus != VisitorStatus.Angry) 
+            {
+                UpdateStatus(VisitorStatus.Angry);
                 _audio.PlayOneShot(AudioManager.Instance.GetSound("Sad"));
                 VisitorOut(); 
             }                         
@@ -64,8 +60,7 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
         patientPercentage = patient / 2;
         VisitorServed = false;
 
-        VisitorAvatar.sprite = visitorData.Normal;
-        currentVisitorStatus = VisitorStatus.Normal;
+        UpdateStatus(VisitorStatus.Normal);
 
         VisitorIsWaiting = true;
     }
@@ -78,13 +73,29 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
             VisitorIn();
         }
         else if (VisitorServed == false && door == false)
-            DialogSystem.Instance.WriteText("TOC TOC TOC!!!");
+            UIManager.Instance.HitDoor();
     }
 
     private void VisitorSpeak()
     {
         List<string> message = visitorData.Dialog;
         DialogSystem.Instance.WriteText(message);
+    }
+
+    private void UpdateStatus(VisitorStatus status) 
+    {
+        currentVisitorStatus = status;
+        switch (currentVisitorStatus) 
+        {
+            case VisitorStatus.Normal: VisitorAvatar.sprite = visitorData.Normal; break;
+            case VisitorStatus.Impatient: VisitorAvatar.sprite = visitorData.Impatient; break;
+            case VisitorStatus.Happy: VisitorAvatar.sprite = visitorData.Happy; break;
+            case VisitorStatus.Angry: VisitorAvatar.sprite = visitorData.Angry; break;
+        }
+        if (currentVisitorStatus != VisitorStatus.Normal)
+            DOTween.Sequence().SetEase(Ease.Linear).SetLoops(3)
+                .Append(transform.DOLocalMoveY(4, .15f))
+                .Append(transform.DOLocalMoveY(0, .15f));
     }
 
     private void VisitorIn()
@@ -141,14 +152,12 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
 
         if (liked)
         {
-            VisitorAvatar.sprite = visitorData.Happy;
-            currentVisitorStatus = VisitorStatus.Happy;
+            UpdateStatus(VisitorStatus.Happy);
             _audio.PlayOneShot(AudioManager.Instance.GetSound("Happy"));
         }
         else 
         {
-            VisitorAvatar.sprite = visitorData.Angry;
-            currentVisitorStatus = VisitorStatus.Angry;
+            UpdateStatus(VisitorStatus.Angry);
             _audio.PlayOneShot(AudioManager.Instance.GetSound("Sad"));
         }
 
