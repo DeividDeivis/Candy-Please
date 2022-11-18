@@ -1085,6 +1085,22 @@ MonoBehaviour:
   VisitorIsWaiting: 0
   VisitorServed: 0
   VisitorAvatar: {fileID: 93814393662375621}
+  pathIn:
+  - {x: 65, y: 0, z: 0}
+  - {x: 50, y: 4, z: 0}
+  - {x: 40, y: 0, z: 0}
+  - {x: 30, y: 4, z: 0}
+  - {x: 20, y: 0, z: 0}
+  - {x: 10, y: 4, z: 0}
+  - {x: 0, y: 0, z: 0}
+  pathOut:
+  - {x: 0, y: 0, z: 0}
+  - {x: -10, y: 4, z: 0}
+  - {x: -20, y: 0, z: 0}
+  - {x: -30, y: 4, z: 0}
+  - {x: -40, y: 0, z: 0}
+  - {x: -50, y: 4, z: 0}
+  - {x: -65, y: 0, z: 0}
   _audio: {fileID: 5524837172282810653}
 --- !u!114 &2987401430233541232
 MonoBehaviour:

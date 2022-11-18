@@ -17,6 +17,8 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
     [Header("Visitor UI Settings")]
     [SerializeField] private Image VisitorAvatar;
     private Sequence visitorAnimation;
+    [SerializeField] private Vector3[] pathIn;
+    [SerializeField] private Vector3[] pathOut;
 
     [Header("SFX Settings")]
     [SerializeField] private AudioSource _audio;
@@ -106,8 +108,8 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
 
         visitorAnimation = DOTween.Sequence().SetEase(Ease.Linear);
         visitorAnimation
-            .Append(VisitorAvatar.rectTransform.DOLocalMove(Vector3.zero, .3f))
-            .Append(VisitorAvatar.DOColor(Color.white, .3f))
+            .Append(VisitorAvatar.rectTransform.DOLocalPath(pathIn, 1f, PathType.Linear))
+            .Append(VisitorAvatar.DOColor(Color.white, .3f))           
             .OnComplete(()=> { 
                 VisitorSpeak();
                 VisitorAvatar.raycastTarget = true;
@@ -122,7 +124,7 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
         visitorAnimation = DOTween.Sequence().SetEase(Ease.Linear).SetDelay(1);
         visitorAnimation
             .Append(VisitorAvatar.DOColor(Color.black, .3f))
-            .Append(VisitorAvatar.rectTransform.DOLocalMove(new Vector3(-65, 0, 0), .3f))            
+            .Append(VisitorAvatar.rectTransform.DOLocalPath(pathOut, 1f, PathType.Linear))
             .OnComplete(() => {
                 GameManager.Instance.CheckVisitorStatus(currentVisitorStatus);
             });

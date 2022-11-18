@@ -94,8 +94,7 @@ MonoBehaviour:
   Description: 
   Icon: {fileID: 5230991068162774039}
   _audio: {fileID: 2021268527885513009}
-  pickUpSfx: {fileID: 8300000, guid: d0d8302d7372c2e4c8519220ca02da97, type: 3}
-  pickUpCD: 2
+  pickUpCD: 5
 --- !u!82 &2021268527885513009
 AudioSource:
   m_ObjectHideFlags: 0
