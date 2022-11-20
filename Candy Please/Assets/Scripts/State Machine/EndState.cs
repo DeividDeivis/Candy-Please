@@ -24,7 +24,7 @@ public class EndState : State
             EndScreenBG.sprite = WinBG;
             m_audio.PlayOneShot(AudioManager.Instance.GetSound("Victory"));
         }
-        else 
+        else if (GameManager.Instance.GameStatus == gameStatusType.Lose)
         {
             EndScreenBG.sprite = LoseBG;
             m_audio.PlayOneShot(AudioManager.Instance.GetSound("Defeat"));
@@ -32,7 +32,7 @@ public class EndState : State
 
         MenuBtn.onClick.AddListener(() => {
             m_audio.PlayOneShot(AudioManager.Instance.GetSound("Click"));
-            GameManager.Instance.NextState(); 
+            GameManager.Instance.SetState(0); 
         });
         Animation();
     }
