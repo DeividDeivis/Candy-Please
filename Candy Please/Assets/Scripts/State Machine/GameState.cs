@@ -44,13 +44,13 @@ public class GameState : State
     public override void OnUpdateState() { }
     public override void OnExitState() 
     {
+        UpdateHouseStatus();
         m_audio.Stop();
         if (currentHouseLife <= 0) // perdio toda la vida.
             GameManager.Instance.GameStatus = gameStatusType.Lose;
         else
             GameManager.Instance.GameStatus = gameStatusType.Win;
-
-        UpdateHouseStatus();
+       
     }
 
     private void ResetData() 
@@ -99,6 +99,14 @@ public class GameState : State
     public void DamageHouse() 
     {
         currentHouseLife--;
+        switch (currentHouseLife)
+        {
+            case 2: m_houseStatus.sprite = statusDamage1; break;
+            case 1: m_houseStatus.sprite = statusDamage2; break;
+            case 0: m_houseStatus.sprite = statusDamage3; break;
+            case -1: GameManager.Instance.NextState(); break;
+            default: m_houseStatus.sprite = statusNormal; break;
+        }
         UpdateHouseStatus();
         Sequence StatusAnim = DOTween.Sequence()
             .Append(m_houseStatus.rectTransform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), .3f))
@@ -110,11 +118,11 @@ public class GameState : State
     { 
         switch (currentHouseLife) 
         {
-            case 2: m_houseStatus.sprite = statusDamage1; GameManager.Instance._houseStatus = "Sucia"; break;
-            case 1: m_houseStatus.sprite = statusDamage2; GameManager.Instance._houseStatus = "Quemada"; break;
-            case 0: m_houseStatus.sprite = statusDamage3; GameManager.Instance._houseStatus = "Arruinada"; break;
-            case -1: GameManager.Instance.NextState(); GameManager.Instance._houseStatus = "Destruida"; break;
-            default: m_houseStatus.sprite = statusNormal; GameManager.Instance._houseStatus = "Impecable"; break;
+            case 2: GameManager.Instance._houseStatus = "Sucia"; break;
+            case 1: GameManager.Instance._houseStatus = "Quemada"; break;
+            case 0: GameManager.Instance._houseStatus = "Arruinada"; break;
+            case -1: GameManager.Instance._houseStatus = "Destruida"; break;
+            default: GameManager.Instance._houseStatus = "Impecable"; break;
         }
     }
 }
