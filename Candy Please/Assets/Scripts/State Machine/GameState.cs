@@ -49,6 +49,8 @@ public class GameState : State
             GameManager.Instance.GameStatus = gameStatusType.Lose;
         else
             GameManager.Instance.GameStatus = gameStatusType.Win;
+
+        UpdateHouseStatus();
     }
 
     private void ResetData() 
@@ -97,6 +99,15 @@ public class GameState : State
     public void DamageHouse() 
     {
         currentHouseLife--;
+        UpdateHouseStatus();
+        Sequence StatusAnim = DOTween.Sequence()
+            .Append(m_houseStatus.rectTransform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), .3f))
+            .Join(m_houseStatus.rectTransform.DOShakeRotation(1, 30, 10, 90, false , ShakeRandomnessMode.Harmonic))
+            .Append(m_houseStatus.rectTransform.DOScale(Vector3.one, .3f));
+    }
+
+    public void UpdateHouseStatus() 
+    { 
         switch (currentHouseLife) 
         {
             case 2: m_houseStatus.sprite = statusDamage1; GameManager.Instance._houseStatus = "Sucia"; break;
@@ -105,9 +116,5 @@ public class GameState : State
             case -1: GameManager.Instance.NextState(); GameManager.Instance._houseStatus = "Destruida"; break;
             default: m_houseStatus.sprite = statusNormal; GameManager.Instance._houseStatus = "Impecable"; break;
         }
-        Sequence StatusAnim = DOTween.Sequence()
-            .Append(m_houseStatus.rectTransform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), .3f))
-            .Join(m_houseStatus.rectTransform.DOShakeRotation(1, 30, 10, 90, false , ShakeRandomnessMode.Harmonic))
-            .Append(m_houseStatus.rectTransform.DOScale(Vector3.one, .3f));
     }
 }

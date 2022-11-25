@@ -10,6 +10,7 @@ public class MenuState : State
     [SerializeField] private AudioSource m_audio;
     [SerializeField] private Button Startgame;
     [SerializeField] private RectTransform BGContainer;
+    [SerializeField] private Button exitGame;
 
     private Sequence MenuSequence;
 
@@ -19,6 +20,13 @@ public class MenuState : State
             m_audio.PlayOneShot(AudioManager.Instance.GetSound("Click"));
             GameManager.Instance.NextState(); 
         });
+        exitGame.onClick.AddListener(()=> Application.Quit());
+
+#if PLATFORM_STANDALONE_WIN
+        exitGame.gameObject.SetActive(true);
+#else
+        exitGame.gameObject.SetActive(false);
+#endif
         m_audio.Play();
         Animation();     
     }
@@ -39,6 +47,8 @@ public class MenuState : State
         Startgame.GetComponent<Image>().color = new Color(1, 1, 1, 0);
         Startgame.transform.localScale = new Vector3(.3f, .3f, 1f);
         BGContainer.localPosition = new Vector3(0f, -120f, 0f);
+        exitGame.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        exitGame.transform.localScale = new Vector3(.3f, .3f, 1f);
 
         MenuSequence = DOTween.Sequence().SetEase(Ease.Linear);
         MenuSequence
@@ -47,6 +57,11 @@ public class MenuState : State
             .Join(Startgame.transform.DOScaleY(1.3f, .15f))
             .Append(Startgame.transform.DOScaleX(1.3f, .15f))
             .Join(Startgame.transform.DOScaleY(1f, .15f))
-            .Append(Startgame.transform.DOScaleX(1f, .15f));
+            .Append(Startgame.transform.DOScaleX(1f, .15f))
+            .Append(exitGame.GetComponent<Image>().DOFade(1, .15f))
+            .Join(exitGame.transform.DOScaleY(1.3f, .15f))
+            .Append(exitGame.transform.DOScaleX(1.3f, .15f))
+            .Join(exitGame.transform.DOScaleY(1f, .15f))
+            .Append(exitGame.transform.DOScaleX(1f, .15f));
     }
 }

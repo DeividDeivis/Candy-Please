@@ -61,6 +61,7 @@ MonoBehaviour:
   _candiesGived: 0
   _candiesCorrects: 0
   _candiesIncorrects: 0
+  _houseStatus: 
 --- !u!114 &1006180315927549437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +77,7 @@ MonoBehaviour:
   m_audio: {fileID: 0}
   Startgame: {fileID: 0}
   BGContainer: {fileID: 0}
+  exitGame: {fileID: 0}
 --- !u!114 &7470054586215130730
 MonoBehaviour:
   m_ObjectHideFlags: 0
