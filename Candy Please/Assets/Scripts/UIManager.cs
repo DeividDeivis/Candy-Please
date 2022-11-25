@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Transform m_Door;
     [SerializeField] private AudioSource m_DoorAudio;
     private Coroutine hitDoorCoroutine;
+    [SerializeField] private TextMeshProUGUI m_candyName;
 
     #region Singleton
     public static UIManager Instance;
@@ -62,6 +64,8 @@ public class UIManager : MonoBehaviour
         foreach (Candy candy in m_CandiesSpawnArea.GetComponentsInChildren<Candy>())
             Destroy(candy.gameObject);
     }
+
+    public void SetCandyName(string name) { m_candyName.text = name; }
 
     public void HitDoor()
     {

@@ -9,6 +9,8 @@ public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointer
 {
     [Header("Type of Candy")]
     public CandyType Type;
+    [Header("Name of Candy")]
+    public string Name;
     [Header("Description of the candy")]
     [TextArea(3, 10)] public string Description;
     [Header("Image of the Candy")]
@@ -24,6 +26,7 @@ public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointer
         Debug.Log("Start Drag");
         CandiesManager.Instance.BeginDragCandy(this, transform.position);
         _audio.PlayOneShot(AudioManager.Instance.GetSound("Pick Up"));
+        UIManager.Instance.SetCandyName(Name);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -35,6 +38,7 @@ public class Candy : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointer
     public void OnPointerClick(PointerEventData eventData)
     {
         DialogSystem.Instance.WriteText(Description);
+        UIManager.Instance.SetCandyName(Name);
     }
 
     public void OnDrag(PointerEventData eventData) // Necessary for Drag.

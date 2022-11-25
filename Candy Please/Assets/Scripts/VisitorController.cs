@@ -143,6 +143,7 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
         Candy candyDroped = eventData.pointerDrag.GetComponent<Candy>();
         candyDroped.DeactiveCandy();
         CheckCandyLiked(candyDroped);
+        GameManager.Instance._candiesGived++;
     }
 
     private void CheckCandyLiked(Candy candy) 
@@ -156,11 +157,13 @@ public class VisitorController : MonoBehaviour, IDropHandler, IPointerClickHandl
         {
             UpdateStatus(VisitorStatus.Happy);
             _audio.PlayOneShot(AudioManager.Instance.GetSound("Happy"));
+            GameManager.Instance._candiesCorrects++;
         }
         else 
         {
             UpdateStatus(VisitorStatus.Angry);
             _audio.PlayOneShot(AudioManager.Instance.GetSound("Sad"));
+            GameManager.Instance._candiesIncorrects++;
         }
 
         VisitorOut();

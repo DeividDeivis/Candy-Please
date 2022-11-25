@@ -48,5 +48,6 @@ public class VisitorsManager : MonoBehaviour
         }
 
         controller.LoadVisitorInfo(newVisitor, newPatient);
+        GameManager.Instance._visitorsInDoor++;
     }
 }

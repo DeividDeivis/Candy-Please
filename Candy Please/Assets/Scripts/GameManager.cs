@@ -19,7 +19,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool startGame;
     [Tooltip("Cuanto dura la partida?")]
     [SerializeField] private float GameTime;
-    private float currentTime;  
+    private float currentTime;
+
+    [Header("Scores")]
+    public int _visitorsInDoor = 0;
+    public int _candiesGived = 0;
+    public int _candiesCorrects = 0;
+    public int _candiesIncorrects = 0;
+    public string _houseStatus = "";
 
     #region Singleton
     public static GameManager Instance;
@@ -82,6 +89,12 @@ public class GameManager : MonoBehaviour
         startGame = false;
         GameStatus = gameStatusType.Win;
         m_Visitors.Initialize();
+        m_UI.SetCandyName("");
+
+        _visitorsInDoor = 0;
+        _candiesGived = 0;
+        _candiesCorrects = 0;
+        _candiesIncorrects = 0;
     }
 
     public void StartGame() 

@@ -92,6 +92,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5230991068162774037, guid: 416a89077b85f22468f561ae6d0cdfab, type: 3}
+      propertyPath: Name
+      value: Helado
+      objectReference: {fileID: 0}
+    - target: {fileID: 5230991068162774037, guid: 416a89077b85f22468f561ae6d0cdfab, type: 3}
       propertyPath: Type
       value: 7
       objectReference: {fileID: 0}

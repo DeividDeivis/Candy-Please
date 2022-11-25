@@ -55,3 +55,4 @@ MonoBehaviour:
   m_CandiesSpawnArea: {fileID: 0}
   m_Door: {fileID: 0}
   m_DoorAudio: {fileID: 0}
+  m_candyName: {fileID: 0}

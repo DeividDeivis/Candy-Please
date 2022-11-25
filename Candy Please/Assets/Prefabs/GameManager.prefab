@@ -57,6 +57,10 @@ MonoBehaviour:
   GameStatus: 0
   startGame: 0
   GameTime: 120
+  _visitorsInDoor: 0
+  _candiesGived: 0
+  _candiesCorrects: 0
+  _candiesIncorrects: 0
 --- !u!114 &1006180315927549437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +119,9 @@ MonoBehaviour:
   m_audio: {fileID: 0}
   WinBG: {fileID: 21300000, guid: 692f361bc64f6404aa7506b5f790bb8d, type: 3}
   LoseBG: {fileID: 21300000, guid: 643a01f2283b9f048a1472d73bc0fd42, type: 3}
+  statsWindow: {fileID: 0}
+  visitorsInDoorTxt: {fileID: 0}
+  candiesGivedTxt: {fileID: 0}
+  candiesCorrectTxt: {fileID: 0}
+  candiesIncorrectsTxt: {fileID: 0}
+  houseStatusTxt: {fileID: 0}
